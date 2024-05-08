@@ -8,7 +8,7 @@ const DonateCard = ({ className }: TPropsClass) => {
   return (
     <div
       className={cn(
-        `border bg-gray-100 lg:w-[390px] lg:h-[450px] h-[500px] rounded-md p-1 hover:-translate-y-3 duration-500 lg:hover:scale-110  shadow-sm shadow-gray-200`,
+        `border bg-gray-100  lg:w-[390px] lg:h-[450px] h-[500px] rounded-md p-1 hover:-translate-y-3 duration-500 lg:hover:scale-110  shadow-sm shadow-gray-200`,
         className
       )}
     >

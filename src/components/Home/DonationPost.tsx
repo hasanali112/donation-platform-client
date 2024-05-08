@@ -28,7 +28,7 @@ const DonationPost = () => {
           and communities to overcome adversity and rebuild their lives with
           dignity and resilience
         </p>
-        <div className="flex justify-end items-center mt-10">
+        <div className="flex justify-end items-center mt-10 overflow-hidden">
           <Link to="/donations">
             <button className="p-6 text-green-500 text-xl font-semibold  rounded-lg inline-flex items-center translate-x-[25px]">
               View All
@@ -83,7 +83,7 @@ const DonationPost = () => {
             </button>
             <button
               onClick={handleNext}
-              className="rounded-full bg-gray-200 w-10 h-10 translate-x-[20px] "
+              className="rounded-full bg-gray-200 w-10 h-10 lg:translate-x-[20px] "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

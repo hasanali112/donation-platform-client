@@ -5,10 +5,10 @@ const HeroSection = () => {
   return (
     <div className="bg-[#151422] text-white">
       <Container>
-        <div className="grid lg:grid-cols-12  items-center pt-16">
-          <div className="col-span-5">
+        <div className="grid grid-cols-12  items-center pt-16">
+          <div className="lg:col-span-5 col-span-12">
             <h1 className="text-4xl font-bold">Welcome to Rebuild Rising</h1>
-            <p className="mt-3 min-w-[55ch] text-base">
+            <p className="mt-3 lg:min-w-[55ch] text-base">
               Directly support those who need it most with your donations. Your
               donation empowers families in poverty to choose how best to
               improve their lives.
@@ -22,8 +22,8 @@ const HeroSection = () => {
               </button>
             </div>
           </div>
-          <div className="col-span-7">
-            <img src={hero} alt="" className="ml-8" />
+          <div className="lg:col-span-7 col-span-12 mt-10 lg:mt-0">
+            <img src={hero} alt="" className="lg:ml-8" />
           </div>
         </div>
       </Container>
