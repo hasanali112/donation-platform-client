@@ -14,7 +14,7 @@ const TestimonialCarousal = () => {
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <Card className=" h-[400px] border-0">
+              <Card className=" lg:h-[400px] border-0">
                 <CardContent className="flex  items-center justify-center p-6 ">
                   <span className="lg:text-2xl md:text-2xl text-xl  text-center lg:mt-20 mt-6 lg:w-[80%] w-[90%] mx-auto">
                     {index == 0 && (

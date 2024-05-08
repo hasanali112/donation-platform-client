@@ -4,7 +4,7 @@ import TestimonialCompany from "./TestimonialCompany";
 
 const Testimonial = () => {
   return (
-    <div className="h-[500px] mt-16">
+    <div className="h-[600px] mt-16">
       <Container>
         <div>
           <h1 className="text-4xl font-bold text-center mb-14">
