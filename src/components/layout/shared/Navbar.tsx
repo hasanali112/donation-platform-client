@@ -31,10 +31,11 @@ const Navbar = () => {
                 <Link to="/donations"> All Donate</Link>
                 <span className="effectNav"></span>
               </li>
-              <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
-                Dashboard
-                <span className="effectNav"></span>
-              </li>
+              <Link to="/dashboard">
+                <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
+                  Dashboard
+                </li>
+              </Link>
               <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
                 Login
                 <span className="effectNav"></span>

@@ -1,4 +1,4 @@
-import Donate from "@/components/Alldonate/Donate";
+import Donate from "@/components/alldonate/Donate";
 
 const AllDonate = () => {
   return (

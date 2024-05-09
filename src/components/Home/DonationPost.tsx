@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import DonateCard from "../Alldonate/DonateCard";
+import DonateCard from "../alldonate/DonateCard";
 import Container from "../layout/shared/Container";
 import { useRef } from "react";
 
