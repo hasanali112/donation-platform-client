@@ -7,7 +7,7 @@ const TestimonialCompany = () => {
   return (
     <div className="flex justify-around">
       <div className="flex flex-col justify-center items-center gap-4">
-        <img src={image1} alt="" />
+        <img src={image1} alt="" className="w-[200px]" />
         <div className="flex">
           <TestimonialSvg />
           <TestimonialSvg />
@@ -17,7 +17,7 @@ const TestimonialCompany = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center gap-4">
-        <img src={image2} alt="" />
+        <img src={image2} alt="" className="w-[200px]" />
         <div className="flex">
           <TestimonialSvg />
           <TestimonialSvg />
@@ -27,7 +27,7 @@ const TestimonialCompany = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center gap-4">
-        <img src={image3} alt="" />
+        <img src={image3} alt="" className="w-[200px]" />
         <div className="flex">
           <TestimonialSvg />
           <TestimonialSvg />

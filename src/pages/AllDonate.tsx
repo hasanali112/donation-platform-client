@@ -2,7 +2,7 @@ import Donate from "@/components/Alldonate/Donate";
 
 const AllDonate = () => {
   return (
-    <div>
+    <div className="mb-5">
       <Donate />
     </div>
   );

@@ -6,8 +6,8 @@ import "./../../style/about.css";
 const About = () => {
   return (
     <div>
-      <Container className="mt-20 mb-20">
-        <div className="flex justify-between items-center gap-10">
+      <Container className="mt-20 mb-5">
+        <div className="flex flex-col lg:flex-row lg:justify-between items-center gap-10">
           <div className="flex-1 -translate-y-[19%]">
             <h1 className="text-4xl font-bold ">About Us</h1>
             <p className="w-[90%] mt-2 text-lg ">
