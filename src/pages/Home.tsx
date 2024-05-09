@@ -1,3 +1,4 @@
+import About from "@/components/Home/About";
 import DonationPost from "@/components/Home/DonationPost";
 import Gellary from "@/components/Home/Gellary";
 import HeroSection from "@/components/Home/HeroSection";
@@ -10,6 +11,7 @@ const Home = () => {
       <DonationPost />
       <Testimonial />
       <Gellary />
+      <About />
     </div>
   );
 };

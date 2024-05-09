@@ -9,7 +9,7 @@ import image7 from "../../assets/5.jpg";
 
 const Gellary = () => {
   return (
-    <div className="bg-gray-100 mt-40 lg:mt-3 pt-20">
+    <div className="bg-gray-100 mt-40 lg:mt-3 pt-20 pb-10">
       <Container>
         <div className="mb-10">
           <h1 className="text-4xl font-bold text-center ">Explore Our Work</h1>
@@ -20,85 +20,85 @@ const Gellary = () => {
           </p>
         </div>
         <div className="grid grid-cols-12 gap-3">
-          <div className="w-full h-[380px]  lg:col-span-4 col-span-12 rounded-lg relative">
+          <div className="w-full h-[290px]  lg:col-span-4 col-span-12 rounded-lg relative">
             <img
               src={image1}
               alt=""
               className="bg-cover object-cover h-full rounded-lg"
             />
-            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[172px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
+            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
               <h1 className="text-3xl group-hover:-translate-x-[50px]">
                 Donation
               </h1>
             </div>
           </div>
-          <div className="w-full h-[380px]  lg:col-span-8 col-span-12 rounded-lg relative">
+          <div className="w-full h-[290px]  lg:col-span-8 col-span-12 rounded-lg relative">
             <img
               src={image2}
               alt=""
               className="bg-cover object-cover object-left-bottom h-full w-full rounded-lg"
             />
-            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[172px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
+            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
               <h1 className="text-3xl group-hover:translate-x-[150px]">
                 Donation
               </h1>
             </div>
           </div>
-          <div className="w-full h-[380px]  lg:col-span-4 col-span-12 rounded-lg relative">
+          <div className="w-full h-[290px]  lg:col-span-4 col-span-12 rounded-lg relative">
             <img
               src={image3}
               alt=""
               className="bg-cover object-cover object-center  h-full w-full rounded-lg"
             />
-            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[172px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
+            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
               <h1 className="text-3xl group-hover:-translate-x-[50px]">
                 Donation
               </h1>
             </div>
           </div>
-          <div className="w-full h-[380px] border lg:col-span-4 col-span-12 rounded-lg relative">
+          <div className="w-full h-[290px] border lg:col-span-4 col-span-12 rounded-lg relative">
             <img
               src={image4}
               alt=""
               className="bg-cover object-cover object-center h-full w-full rounded-lg"
             />
-            <div className="absolute bottom-0 left-0 right-0 rounded-b-lg p-5 hover:p-[172px] hover:rounded-lg text-white bg-black/50 duration-500 w-full group overflow-hidden">
+            <div className="absolute bottom-0 left-0 right-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500 w-full group overflow-hidden">
               <h1 className="text-3xl group-hover:-translate-x-[50px]">
                 Donation
               </h1>
             </div>
           </div>
-          <div className="w-full h-[380px] bg-red-500 lg:col-span-4 col-span-12 rounded-lg relative">
+          <div className="w-full h-[290px] bg-red-500 lg:col-span-4 col-span-12 rounded-lg relative">
             <img
               src={image5}
               alt=""
               className="bg-cover object-cover object-center h-full w-full rounded-lg "
             />
-            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[172px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
+            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
               <h1 className="text-3xl group-hover:-translate-x-[50px]">
                 Donation
               </h1>
             </div>
           </div>
-          <div className="w-full h-[380px] bg-red-500 lg:col-span-8 col-span-12 rounded-lg relative">
+          <div className="w-full h-[290px] bg-red-500 lg:col-span-8 col-span-12 rounded-lg relative">
             <img
               src={image6}
               alt=""
               className="bg-cover object-cover object-bottom  h-full w-full rounded-lg "
             />
-            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[172px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
+            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
               <h1 className="text-3xl group-hover:translate-x-[150px]">
                 Donation
               </h1>
             </div>
           </div>
-          <div className="w-full h-[380px] bg-red-500 lg:col-span-4 col-span-12 rounded-lg relative">
+          <div className="w-full h-[290px] bg-red-500 lg:col-span-4 col-span-12 rounded-lg relative">
             <img
               src={image7}
               alt=""
               className="bg-cover object-cover object-center  h-full w-full rounded-lg "
             />
-            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[172px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
+            <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
               <h1 className="text-3xl group-hover:-translate-x-[50px]">
                 Donation
               </h1>
