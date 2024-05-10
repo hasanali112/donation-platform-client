@@ -5,3 +5,11 @@ export type Inputs = {
   amount: string;
   description: string;
 };
+
+export type TProps = {
+  title: string;
+  image: string;
+  category: string;
+  amount: string;
+  _id: string;
+};

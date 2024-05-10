@@ -5,6 +5,7 @@ import AddPost from "@/pages/Dashboard/AddPost";
 import AllPost from "@/pages/Dashboard/AllPost";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import Home from "@/pages/Home";
+import PostDetail from "@/pages/PostDetail";
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "donations",
         element: <AllDonate />,
+      },
+      {
+        path: "donations/:id",
+        element: <PostDetail />,
       },
     ],
   },

@@ -11,7 +11,23 @@ export const baseApi = createApi({
         body: data,
       }),
     }),
+    getDonationPost: builder.query({
+      query: () => ({
+        url: "/donations",
+        method: "GET",
+      }),
+    }),
+    getDonationPostById: builder.query({
+      query: (id) => ({
+        url: `/donations/${id}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useAddDonationPostMutation } = baseApi;
+export const {
+  useAddDonationPostMutation,
+  useGetDonationPostQuery,
+  useGetDonationPostByIdQuery,
+} = baseApi;

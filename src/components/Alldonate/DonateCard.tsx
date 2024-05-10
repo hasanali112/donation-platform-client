@@ -1,10 +1,23 @@
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 type TPropsClass = {
+  _id: string;
   className?: string;
+  title: string;
+  image: string;
+  category: string;
+  amount: string;
 };
 
-const DonateCard = ({ className }: TPropsClass) => {
+const DonateCard = ({
+  className,
+  title,
+  image,
+  category,
+  amount,
+  _id,
+}: TPropsClass) => {
   return (
     <div
       className={cn(
@@ -13,20 +26,18 @@ const DonateCard = ({ className }: TPropsClass) => {
       )}
     >
       <div>
-        <img
-          src="https://images.unsplash.com/photo-1542627088-6603b66e5c54?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-          className="rounded-md"
-        />
+        <img src={image} alt="" className="rounded-md" />
       </div>
       <div className="mt-4 mx-2">
-        <h1>Your organization's logo, address and website</h1>
-        <p className="mt-2">Category: Bag</p>
-        <p className="mt-2">Amount: $20</p>
+        <h1>{title}</h1>
+        <p className="mt-2">Category: {category}</p>
+        <p className="mt-2">Amount: ${amount}</p>
         <div className="translate-y-2 ">
-          <button className="p-2 w-[350px] text-white font-semibold bg-pink-600 rounded-lg ">
-            View detail
-          </button>
+          <Link to={`/donations/${_id}`}>
+            <button className="p-2 w-[350px] text-white font-semibold bg-pink-600 rounded-lg ">
+              View detail
+            </button>
+          </Link>
         </div>
       </div>
     </div>
