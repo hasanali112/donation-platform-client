@@ -1,6 +1,6 @@
 const TopNav = () => {
   return (
-    <div className="bg-white  h-[57px] w-full  border-b-0 shadow-md">
+    <div className="bg-white  h-[57px] w-full  border-b-0 shadow-md sticky top-0 z-10">
       <div className="flex justify-end items-center lg:mr-20 space-x-10 pt-2">
         <div className="flex  items-center">
           <span>
