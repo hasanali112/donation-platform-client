@@ -8,7 +8,7 @@ const PostDetail = () => {
   console.log(data);
 
   if (isLoading) {
-    return <p>Loading........</p>;
+    return <p className="w-1/2 mx-auto">Loading........</p>;
   }
 
   if (isError) {

@@ -23,6 +23,13 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
+    upadateDonationPost: builder.mutation({
+      query: (option) => ({
+        url: `/update-donation-post/${option.id}`,
+        method: "PUT",
+        body: option.donationData,
+      }),
+    }),
   }),
 });
 
@@ -30,4 +37,5 @@ export const {
   useAddDonationPostMutation,
   useGetDonationPostQuery,
   useGetDonationPostByIdQuery,
+  useUpadateDonationPostMutation,
 } = baseApi;

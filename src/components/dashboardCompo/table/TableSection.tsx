@@ -8,8 +8,9 @@ import {
 } from "@/components/ui/table";
 import { useGetDonationPostQuery } from "@/redux/api/baseApi";
 import { TProps } from "@/type/type";
-import { PencilLine, SquarePen, Trash2 } from "lucide-react";
+import { PencilLine, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import TableModal from "./TableModal";
 
 const TableSection = () => {
   const { data, isLoading, isError } = useGetDonationPostQuery(undefined);
@@ -41,10 +42,8 @@ const TableSection = () => {
                 <TableCell className="font-medium">{item.title}</TableCell>
                 <TableCell>{item.category}</TableCell>
                 <TableCell>${item.amount}</TableCell>
-                <TableCell className="text-right lg:space-x-4">
-                  <button>
-                    <SquarePen />
-                  </button>
+                <TableCell className="text-right lg:space-x-4 flex justify-end items-center">
+                  <TableModal _id={item._id} />
                   <button>
                     <Trash2 />
                   </button>
