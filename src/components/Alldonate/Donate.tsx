@@ -2,12 +2,30 @@ import { useGetDonationPostQuery } from "@/redux/api/baseApi";
 import Container from "../layout/shared/Container";
 import DonateCard from "./DonateCard";
 import { TProps } from "@/type/type";
+import { CircleDashed } from "lucide-react";
 
 const Donate = () => {
   const { data, isLoading, isError } = useGetDonationPostQuery(undefined);
 
   if (isLoading) {
-    return <p>Loading........</p>;
+    return (
+      <div
+        className={
+          isLoading
+            ? "flex justify-center items-center mt-10 text-white font-semibold h-screen"
+            : ""
+        }
+      >
+        <button
+          type="button"
+          className="bg-indigo-500 p-10 flex items-center text-3xl rounded-lg"
+          disabled
+        >
+          <CircleDashed className="animate-spin h-10 w-10 mr-3 ..." />
+          Processing...
+        </button>
+      </div>
+    );
   }
 
   if (isError) {

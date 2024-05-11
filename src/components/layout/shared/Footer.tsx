@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Container from "./Container";
+import logo from "../../../assets/logo2.png";
 
 const Footer = () => {
   return (
@@ -8,8 +9,9 @@ const Footer = () => {
         <div className="grid grid-cols-12 gap-5  pb-4">
           <div className=" col-span-12 lg:col-span-3 ">
             <div className="mt-14">
-              <Link to="/">
-                <span className="text-3xl font-bold ">
+              <Link to="/" className="flex items-center gap-1 ">
+                <img src={logo} alt="" className="w-12" />
+                <span className="text-3xl font-bold">
                   Rebuild <span className="text-cyan-400">Rising</span>
                 </span>
               </Link>

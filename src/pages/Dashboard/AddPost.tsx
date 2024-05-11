@@ -6,8 +6,7 @@ import { useAddDonationPostMutation } from "@/redux/api/baseApi";
 import { Inputs } from "@/type/type";
 
 const AddPost = () => {
-  const [addDonationPost, { isLoading, isError }] =
-    useAddDonationPostMutation();
+  const [addDonationPost, { isError }] = useAddDonationPostMutation();
 
   const { register, handleSubmit, reset } = useForm<Inputs>();
 
@@ -15,10 +14,6 @@ const AddPost = () => {
     addDonationPost(data);
     reset();
   };
-
-  if (isLoading) {
-    return <p>Loading......</p>;
-  }
 
   if (isError) {
     console.log(isError);

@@ -6,7 +6,7 @@ import Testimonial from "@/components/Home/testimonial/Testimonial";
 
 const Home = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <HeroSection />
       <DonationPost />
       <Testimonial />

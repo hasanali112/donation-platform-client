@@ -1,27 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RightSidebar from "./RightSidebar";
 import Container from "./Container";
+import logo from "../../../assets/logo2.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="bg-[#23203e] text-white">
-      <div className="bg-[#151422]">
-        <Container className="flex justify-between items-center p-5">
-          <div className="flex justify-center items-center gap-16">
-            <Link to="/">
+    <div className={"sticky top-0 z-10"}>
+      <div
+        className={
+          scrolled ? "bg-white text-black shadow-md" : "bg-[#151422] text-white"
+        }
+      >
+        <Container className="flex justify-between items-center p-5 ">
+          <div className="flex justify-center items-center gap-16 ">
+            <Link to="/" className="flex items-center gap-1 ">
+              <img src={logo} alt="" className="w-12" />
               <span className="text-3xl font-bold">
                 Rebuild <span className="text-cyan-400">Rising</span>
               </span>
             </Link>
           </div>
-          <div className="lg:block hidden">
+          <div className="lg:block hidden mt-1">
             <ul className="flex gap-10 cursor-pointer">
               <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
                 <Link to="/"> Home</Link>
@@ -36,10 +59,12 @@ const Navbar = () => {
                   Dashboard
                 </li>
               </Link>
-              <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
-                Login
-                <span className="effectNav"></span>
-              </li>
+              <Link to="/login">
+                <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
+                  Login
+                  <span className="effectNav"></span>
+                </li>
+              </Link>
             </ul>
           </div>
           <div className="relative  lg:hidden">
@@ -87,7 +112,7 @@ const Navbar = () => {
                   : "-right-4 md:right-16 md:top-[39px] -top-96"
               } duration-500 `}
             >
-              {isOpen && <RightSidebar />}
+              {isOpen && <RightSidebar scrolled={scrolled} />}
             </div>
           </div>
         </Container>

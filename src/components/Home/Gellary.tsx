@@ -24,22 +24,20 @@ const Gellary = () => {
             <img
               src={image1}
               alt=""
-              className="bg-cover object-cover h-full rounded-lg"
+              className="bg-cover object-cover w-full h-full rounded-lg"
             />
             <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
-              <h1 className="text-3xl group-hover:-translate-x-[50px]">
-                Donation
-              </h1>
+              <h1 className="text-3xl "> Donation</h1>
             </div>
           </div>
-          <div className="w-full h-[290px]  lg:col-span-8 col-span-12 rounded-lg relative">
+          <div className="w-full h-[294px]  lg:col-span-8 col-span-12 rounded-lg relative">
             <img
               src={image2}
               alt=""
               className="bg-cover object-cover object-left-bottom h-full w-full rounded-lg"
             />
             <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
-              <h1 className="text-3xl group-hover:translate-x-[150px]">
+              <h1 className="text-3xl lg:group-hover:translate-x-[150px]">
                 Donation
               </h1>
             </div>
@@ -87,7 +85,7 @@ const Gellary = () => {
               className="bg-cover object-cover object-bottom  h-full w-full rounded-lg "
             />
             <div className="absolute bottom-0 rounded-b-lg p-5 hover:p-[127px] hover:rounded-lg text-white bg-black/50 duration-500  w-full group">
-              <h1 className="text-3xl group-hover:translate-x-[150px]">
+              <h1 className="text-3xl lg:group-hover:translate-x-[150px]">
                 Donation
               </h1>
             </div>

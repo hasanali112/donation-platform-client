@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import DonateCard from "../alldonate/DonateCard";
 import Container from "../layout/shared/Container";
 import { useRef } from "react";
+import { useGetDonationPostQuery } from "@/redux/api/baseApi";
+import { TProps } from "@/type/type";
 
 const DonationPost = () => {
   const boxContainerRef = useRef<HTMLDivElement>(null);
+  const { data } = useGetDonationPostQuery(undefined);
 
   const handleNext = () => {
     if (boxContainerRef.current) {
@@ -30,7 +33,7 @@ const DonationPost = () => {
         </p>
         <div className="flex justify-end items-center mt-10 overflow-hidden">
           <Link to="/donations">
-            <button className="p-6 text-green-500 text-xl font-semibold  rounded-lg inline-flex items-center translate-x-[25px]">
+            <button className="p-6 text-green-500 text-xl font-semibold  rounded-lg inline-flex items-center translate-x-[20px]">
               View All
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,17 +57,14 @@ const DonationPost = () => {
             ref={boxContainerRef}
             className="flex gap-4  overflow-hidden duration-500"
           >
-            <DonateCard className="lg:hover:scale-100 " />
-            <DonateCard className="lg:hover:scale-100 " />
-            <DonateCard className="lg:hover:scale-100 " />
-            <DonateCard className="lg:hover:scale-100" />
-            <DonateCard className="lg:hover:scale-100" />
-            <DonateCard className="lg:hover:scale-100 " />
+            {data?.slice(0, 6)?.map((item: TProps) => (
+              <DonateCard className="lg:hover:scale-100 " {...item} />
+            ))}
           </div>
           <div className="flex justify-between -translate-y-[650%] duration-500">
             <button
               onClick={handlePre}
-              className="rounded-full bg-gray-200 w-10 h-10 -translate-x-[20px] "
+              className="rounded-full bg-gray-200 w-10 h-10 -translate-x-[10px] "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ const DonationPost = () => {
             </button>
             <button
               onClick={handleNext}
-              className="rounded-full bg-gray-200 w-10 h-10 lg:translate-x-[20px] "
+              className="rounded-full bg-gray-200 w-10 h-10 lg:translate-x-[10px] "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
