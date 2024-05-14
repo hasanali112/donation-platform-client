@@ -34,7 +34,7 @@ const DonateCard = ({
         <p className="mt-2">Amount: ${amount}</p>
         <div className="translate-y-2 ">
           <Link to={`/donations/${_id}`}>
-            <button className="p-2 w-[350px] text-white font-semibold bg-pink-600 rounded-lg ">
+            <button className="p-2 lg:w-[350px] w-full text-white font-semibold bg-pink-600 rounded-lg ">
               View detail
             </button>
           </Link>

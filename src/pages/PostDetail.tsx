@@ -1,3 +1,4 @@
+import LoadingSinglePage from "@/components/cutomsLoading/LoadingSinglePage";
 import Container from "@/components/layout/shared/Container";
 import { useGetDonationPostByIdQuery } from "@/redux/api/baseApi";
 import { useParams } from "react-router-dom";
@@ -5,10 +6,9 @@ import { useParams } from "react-router-dom";
 const PostDetail = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useGetDonationPostByIdQuery(id);
-  console.log(data);
 
   if (isLoading) {
-    return <p className="w-1/2 mx-auto">Loading........</p>;
+    return <LoadingSinglePage />;
   }
 
   if (isError) {
@@ -17,7 +17,7 @@ const PostDetail = () => {
 
   return (
     <div className="bg-gray-100 pb-5">
-      <Container className="lg:h-screen pt-10">
+      <Container className=" pt-10">
         <div className="grid grid-cols-12 gap-10 bg-white rounded-lg shadow-sm">
           <div className="lg:col-span-7 col-span-12 h-[500px] p-5">
             <img src={data.image} alt="" className="w-full h-full rounded-lg" />
