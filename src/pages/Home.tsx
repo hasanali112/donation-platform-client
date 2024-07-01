@@ -1,8 +1,9 @@
 import About from "@/components/Home/About";
 import DonationPost from "@/components/Home/DonationPost";
-import Gellary from "@/components/Home/Gellary";
 import HeroSection from "@/components/Home/HeroSection";
 import Scroll from "@/components/Home/Scroll";
+import Ammassador from "@/components/Home/ambassador/Ammassador";
+import Gellary from "@/components/Home/gellary/Gellary";
 
 import Testimonial from "@/components/Home/testimonial/Testimonial";
 
@@ -13,6 +14,7 @@ const Home = () => {
       <DonationPost />
       <Testimonial />
       <Gellary />
+      <Ammassador />
       <About />
       <Scroll />
     </div>

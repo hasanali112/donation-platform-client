@@ -1,7 +1,7 @@
 import LoadingSinglePage from "@/components/cutomsLoading/LoadingSinglePage";
 import Container from "@/components/layout/shared/Container";
 import { useGetDonationPostByIdQuery } from "@/redux/api/baseApi";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const PostDetail = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const PostDetail = () => {
   }
 
   return (
-    <div className="bg-gray-100 pb-5">
+    <div className="bg-slate-200 pb-5">
       <Container className=" pt-10">
         <div className="grid grid-cols-12 gap-10 bg-white rounded-lg shadow-sm">
           <div className="lg:col-span-7 col-span-12 h-[500px] p-5">
@@ -28,11 +28,17 @@ const PostDetail = () => {
             <h1 className="mt-3 text-xl">${data.amount}</h1>
             <p className="mt-3 ">{data.description.slice(0, 500)}</p>
             <div className=" mt-5">
-              <button className="p-3 w-full text-white font-semibold bg-pink-600 rounded-lg">
-                Donate
-              </button>
+              <Link to="/donation-checkout">
+                {" "}
+                <button className="p-3 w-full text-white font-semibold bg-blue-600 rounded-lg">
+                  Donate
+                </button>
+              </Link>
             </div>
           </div>
+        </div>
+        <div>
+          <p className="text-gray-600 mt-20 mb-20">{data.description}</p>
         </div>
       </Container>
     </div>

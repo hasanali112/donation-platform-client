@@ -11,5 +11,6 @@ export type TProps = {
   image: string;
   category: string;
   amount: string;
+  description: string;
   _id: string;
 };

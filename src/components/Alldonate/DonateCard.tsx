@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Progress } from "../ui/progress";
 
 type TPropsClass = {
   _id: string;
@@ -8,6 +10,7 @@ type TPropsClass = {
   image: string;
   category: string;
   amount: string;
+  description: string;
 };
 
 const DonateCard = ({
@@ -16,27 +19,39 @@ const DonateCard = ({
   image,
   category,
   amount,
+  description,
   _id,
 }: TPropsClass) => {
   return (
     <div
       className={cn(
-        `border bg-gray-100  lg:w-[390px] lg:h-[450px] h-[500px] rounded-md p-1 hover:-translate-y-3 duration-500 lg:hover:scale-110  shadow-sm shadow-gray-200`,
+        `border bg-gray-100  lg:w-[390px] lg:h-[550px] h-[500px] rounded-sm  hover:-translate-y-3 duration-500 lg:hover:scale-110  shadow-sm shadow-gray-200`,
         className
       )}
     >
       <div>
-        <img src={image} alt="" className="rounded-md" />
+        <img src={image} alt="" className="rounded-sm" />
       </div>
-      <div className="mt-4 mx-2">
-        <h1>{title}</h1>
-        <p className="mt-2">Category: {category}</p>
-        <p className="mt-2">Amount: ${amount}</p>
-        <div className="translate-y-2 ">
+      <div className="bg-white border rounded-md   w-[95%] h-[57%] mx-auto -translate-y-[40px]">
+        <div className="p-3 mt-5 space-y-4">
+          <h1 className="text-xl font-bold">{title}</h1>
+          <Progress value={60} className="h-2" />
+          <p className="mt-2">
+            {" "}
+            <span className="font-semibold">${amount}</span>{" "}
+            <span className="text-gray-500">donated of</span>{" "}
+            <span className="font-semibold">$2,500</span>
+            <span className="text-gray-500"> goal</span>
+          </p>
+        </div>
+        <hr />
+        <div className="p-3">
+          <p className="mt-2 mb-3">Category: {category}</p>
+          <p className="text-gray-500">{description.slice(0, 70)}..</p>
           <Link to={`/donations/${_id}`}>
-            <button className="p-2 lg:w-[350px] w-full text-white font-semibold bg-pink-600 rounded-lg ">
-              View detail
-            </button>
+            <h1 className="inline-flex gap-3 items-center  mt-5">
+              <span className="font-semibold">Read More</span> <ArrowRight />
+            </h1>
           </Link>
         </div>
       </div>

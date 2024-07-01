@@ -5,8 +5,8 @@ import "./../../style/about.css";
 
 const About = () => {
   return (
-    <div>
-      <Container className="lg:mt-20 mt-40 mb-5">
+    <div className="bg-slate-200">
+      <Container className="lg:pt-28 pt-40 ">
         <div className="flex flex-col lg:flex-row lg:justify-between items-center lg:gap-10">
           <div className="flex-1 -translate-y-[19%]">
             <h1 className="text-4xl font-bold ">About Us</h1>
@@ -26,7 +26,7 @@ const About = () => {
               the lives of others.
             </p>
             <div className="flex gap-4 mt-10">
-              <button className="p-3 w-36 text-white font-semibold bg-pink-600 rounded-lg">
+              <button className="p-3 w-36 text-white font-semibold bg-cyan-600 rounded-lg">
                 Donate
               </button>
               <button className="p-3 w-36 text-white font-semibold bg-gray-600 rounded-lg">

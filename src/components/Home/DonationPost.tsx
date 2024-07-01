@@ -24,7 +24,7 @@ const DonationPost = () => {
 
   return (
     <div>
-      <Container className="mt-28">
+      <Container className="pt-28 pb-28">
         <h1 className="text-4xl font-bold text-center">Help Rebuild Lives</h1>
         <p className="text-center text-xl w-4/5 mt-4 mx-auto">
           Together, we can rebuild homes, restore hope, and empower individuals
@@ -33,7 +33,7 @@ const DonationPost = () => {
         </p>
         <div className="flex justify-end items-center mt-10 overflow-hidden">
           <Link to="/donations">
-            <button className="p-6 text-green-500 text-xl font-semibold  rounded-lg inline-flex items-center translate-x-[20px]">
+            <button className="p-6 text-blue-500 text-xl font-semibold  rounded-lg inline-flex items-center translate-x-[20px]">
               View All
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,11 @@ const DonationPost = () => {
             className="flex gap-4  overflow-hidden duration-500"
           >
             {data?.slice(0, 6)?.map((item: TProps) => (
-              <DonateCard className="lg:hover:scale-100 " {...item} />
+              <DonateCard
+                key={item._id}
+                className="lg:hover:scale-100 "
+                {...item}
+              />
             ))}
           </div>
           <div className="flex justify-between -translate-y-[650%] duration-500">

@@ -14,7 +14,7 @@ const HeroSection = () => {
               improve their lives.
             </p>
             <div className="mt-4 space-x-4">
-              <button className="p-3 w-36 text-white font-semibold bg-pink-600 rounded-lg">
+              <button className="p-3 w-36 text-white font-semibold bg-blue-700 rounded-lg">
                 Donate
               </button>
               <button className="p-3 w-36 text-white font-semibold bg-gray-600 rounded-lg">
