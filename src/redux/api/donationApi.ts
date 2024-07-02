@@ -15,6 +15,12 @@ export const donationApi = createApi({
       }),
       invalidatesTags: ["paymentpost"],
     }),
+    getPayment: builder.query({
+      query: () => ({
+        url: "/payments",
+        method: "GET",
+      }),
+    }),
 
     getPaymentById: builder.query({
       query: (id) => ({
@@ -26,4 +32,8 @@ export const donationApi = createApi({
   }),
 });
 
-export const { useAddPaymentMutation, useGetPaymentByIdQuery } = donationApi;
+export const {
+  useAddPaymentMutation,
+  useGetPaymentQuery,
+  useGetPaymentByIdQuery,
+} = donationApi;

@@ -5,18 +5,44 @@ import logo from "../assets/logo2.png";
 import { useContext } from "react";
 import { AuthContext } from "@/providers/AuthProviders";
 import Swal from "sweetalert2";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { UserCredential } from "firebase/auth";
+
+type Inputs = {
+  email: string;
+  password: string;
+};
 
 const Login = () => {
   const context = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
+  const { register, handleSubmit } = useForm<Inputs>();
 
   if (!context) {
     return null; // or some fallback UI
   }
 
-  const { googleLoggedUser } = context;
+  const { googleLoggedUser, loginUser } = context;
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const email = data.email;
+    const password = data.password;
+    loginUser(email, password)
+      .then((result: UserCredential) => {
+        result.user;
+        Swal.fire({
+          title: "Login!",
+          text: "Login successfully!",
+          icon: "success",
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleGoogleLogin = () => {
     googleLoggedUser()
@@ -64,25 +90,34 @@ const Login = () => {
             </button>
           </div>
           <p className="lg:ml-32 mb-3 mt-4">or Login with Email</p>
-          <div>
-            <label htmlFor="Email" className="block">
-              Email
-            </label>
-            <input
-              type="text"
-              className="border w-[70%] mb-3 h-12 rounded-lg"
-            />
-            <label htmlFor="password" className="block">
-              Password
-            </label>
-            <input
-              type="password" // Changed to password for better security
-              className="border w-[70%] mb-3 h-12 rounded-lg"
-            />
-          </div>
-          <button className="w-[70%] h-14 rounded-lg bg-violet-600 text-white mt-3 text-xl font-semibold flex justify-center items-center gap-2 shadow-sm hover:-translate-y-2 duration-500">
-            Login
-          </button>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <label htmlFor="email" className="block">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                {...register("email")}
+                className="border w-[70%] mb-3 h-12 rounded-lg"
+              />
+              <label htmlFor="password" className="block">
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                {...register("password")}
+                className="border w-[70%] mb-3 h-12 rounded-lg"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-[70%] h-14 rounded-lg bg-violet-600 text-white mt-3 text-xl font-semibold flex justify-center items-center gap-2 shadow-sm hover:-translate-y-2 duration-500"
+            >
+              Login
+            </button>
+          </form>
           <p className="mt-3 mb-10">
             No registration yet?{" "}
             <Link to="/register" className="text-violet-500">

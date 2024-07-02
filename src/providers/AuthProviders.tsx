@@ -15,7 +15,7 @@ import {
 
 type TContext = {
   user: FirebaseUser | null;
-  createUser: (email: string, password: string) => Promise<UserCredential>;
+  userCreate: (email: string, password: string) => Promise<UserCredential>;
   loginUser: (email: string, password: string) => Promise<UserCredential>;
   updateUserProfile: (name: string, photo: string) => Promise<void>;
   googleLoggedUser: () => Promise<UserCredential>;
@@ -37,7 +37,7 @@ const AuthProviders = ({ children }: { children: ReactNode }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const createUser = (email: string, password: string) => {
+  const userCreate = (email: string, password: string) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -76,7 +76,7 @@ const AuthProviders = ({ children }: { children: ReactNode }) => {
 
   const authInfo = {
     user,
-    createUser,
+    userCreate,
     loginUser,
     updateUserProfile,
     googleLoggedUser,

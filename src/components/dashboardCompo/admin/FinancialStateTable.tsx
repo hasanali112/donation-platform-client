@@ -7,8 +7,24 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useGetPaymentQuery } from "@/redux/api/donationApi";
+
+type TPayment = {
+  _id: string;
+  name: string;
+  email: string;
+  amount: string;
+  postCode: string;
+  country: string;
+  phoneNumber: string;
+};
 
 const FinancialStateTable = () => {
+  const { data, isLoading } = useGetPaymentQuery(undefined);
+
+  if (isLoading) {
+    return <p>Loading............</p>;
+  }
   return (
     <Table className="bg-gray-50 p-4 rounded-md">
       <TableCaption>Rebuil Rising Total Fund</TableCaption>
@@ -17,17 +33,28 @@ const FinancialStateTable = () => {
           <TableHead className="w-[100px]">Donar Id</TableHead>
           <TableHead>Name</TableHead>
           <TableHead>Email</TableHead>
-          <TableHead>Role</TableHead>
+          <TableHead>Phone number</TableHead>
+          <TableHead>Post Code</TableHead>
+          <TableHead>Country</TableHead>
+          <TableHead>Tranction Id</TableHead>
           <TableHead className="text-right">Amount</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
-          <TableCell className="font-medium"></TableCell>
-          <TableCell></TableCell>
-          <TableCell className="text-right"></TableCell>
-          <TableCell className="text-right"></TableCell>
-        </TableRow>
+        {data?.map((payment: TPayment, index: number) => (
+          <TableRow key={payment._id}>
+            <TableCell className="font-medium">
+              {index == 0 ? 1 : index}
+            </TableCell>
+            <TableCell>{payment.name}</TableCell>
+            <TableCell>{payment.email}</TableCell>
+            <TableCell>{payment.phoneNumber}</TableCell>
+            <TableCell>{payment.postCode}</TableCell>
+            <TableCell>{payment.country}</TableCell>
+            <TableCell>{payment._id}</TableCell>
+            <TableCell>{payment.amount}</TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );
