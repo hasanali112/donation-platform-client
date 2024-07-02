@@ -1,6 +1,15 @@
 // import { FolderPlus, LayoutDashboard, StickyNote } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo2.png";
+import {
+  BadgeDollarSign,
+  File,
+  Handshake,
+  LineChart,
+  MessageSquarePlus,
+  SquarePlus,
+  UsersRound,
+} from "lucide-react";
 
 const Sidebar = () => {
   const admin = true;
@@ -17,36 +26,59 @@ const Sidebar = () => {
         <hr className="opacity-30" />
         {admin && (
           <ul className="flex flex-col gap-6 p-1 lg:p-5">
-            <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
-              Insight
-            </li>
+            <Link to="/dashboard">
+              <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
+                <span>
+                  <LineChart />
+                </span>{" "}
+                Insight
+              </li>
+            </Link>
             <Link to="/dashboard/user-manage">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
+                <span>
+                  <UsersRound />
+                </span>{" "}
                 User Manage
               </li>
             </Link>
             <Link to="/dashboard/campains">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
+                <span>
+                  <Handshake />
+                </span>{" "}
                 Campains
               </li>
             </Link>
             <Link to="/dashboard/blogs">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
+                <span>
+                  <File />
+                </span>{" "}
                 Blogs
               </li>
             </Link>
             <Link to="/dashboard/financial-stats">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
+                <span>
+                  <BadgeDollarSign />
+                </span>{" "}
                 Financal Stats
               </li>
             </Link>
             <Link to="/dashboard/create-campain">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
+                <span>
+                  <SquarePlus />
+                </span>{" "}
                 Add Campain
               </li>
             </Link>
             <Link to="/dashboard/create-blog">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
+                <span>
+                  <MessageSquarePlus />
+                </span>
                 Add Blog
               </li>
             </Link>
