@@ -1,8 +1,12 @@
 import App from "@/App";
 import DashboardLayout from "@/components/layout/DashboardLayout/DashboardLayout";
 import AllDonate from "@/pages/AllDonate";
-import AddPost from "@/pages/Dashboard/AddPost";
-import AllPost from "@/pages/Dashboard/AllPost";
+import AddBlog from "@/pages/Dashboard/admin/AddBlog";
+import AddCampian from "@/pages/Dashboard/admin/AddCampian";
+import Campaining from "@/pages/Dashboard/admin/Campaining";
+import ContentManage from "@/pages/Dashboard/admin/ContentManage";
+import FinancialReport from "@/pages/Dashboard/admin/FinancialReport";
+import UserManagement from "@/pages/Dashboard/admin/UserManagement";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import DonationForm from "@/pages/DonationForm";
 import Home from "@/pages/Home";
@@ -65,12 +69,28 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "donations",
-        element: <AllPost />,
+        path: "user-manage",
+        element: <UserManagement />,
       },
       {
-        path: "create-donation",
-        element: <AddPost />,
+        path: "campains",
+        element: <Campaining />,
+      },
+      {
+        path: "blogs",
+        element: <ContentManage />,
+      },
+      {
+        path: "financial-stats",
+        element: <FinancialReport />,
+      },
+      {
+        path: "create-campain",
+        element: <AddCampian />,
+      },
+      {
+        path: "create-blog",
+        element: <AddBlog />,
       },
     ],
   },

@@ -4,10 +4,11 @@ import Container from "../layout/shared/Container";
 import { useRef } from "react";
 import { useGetDonationPostQuery } from "@/redux/api/baseApi";
 import { TProps } from "@/type/type";
+import LoadingCard from "../cutomsLoading/LoadingCard";
 
 const DonationPost = () => {
   const boxContainerRef = useRef<HTMLDivElement>(null);
-  const { data } = useGetDonationPostQuery(undefined);
+  const { data, isLoading } = useGetDonationPostQuery(undefined);
 
   const handleNext = () => {
     if (boxContainerRef.current) {
@@ -57,13 +58,16 @@ const DonationPost = () => {
             ref={boxContainerRef}
             className="flex gap-4  overflow-hidden duration-500"
           >
-            {data?.slice(0, 6)?.map((item: TProps) => (
-              <DonateCard
-                key={item._id}
-                className="lg:hover:scale-100 "
-                {...item}
-              />
-            ))}
+            {data
+              ?.slice(0, 6)
+              ?.map((item: TProps) => (
+                <DonateCard
+                  key={item._id}
+                  className="lg:hover:scale-100 "
+                  {...item}
+                />
+              )) ||
+              (isLoading && <LoadingCard />)}
           </div>
           <div className="flex justify-between -translate-y-[650%] duration-500">
             <button

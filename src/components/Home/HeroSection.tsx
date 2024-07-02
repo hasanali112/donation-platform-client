@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Container from "../layout/shared/Container";
 import hero from "./../../assets/hero.png";
 
@@ -14,9 +15,11 @@ const HeroSection = () => {
               improve their lives.
             </p>
             <div className="mt-4 space-x-4">
-              <button className="p-3 w-36 text-white font-semibold bg-blue-700 rounded-lg">
-                Donate
-              </button>
+              <Link to="/donation-checkout">
+                <button className="p-3 w-36 text-white font-semibold bg-blue-700 rounded-lg">
+                  Donate
+                </button>
+              </Link>
               <button className="p-3 w-36 text-white font-semibold bg-gray-600 rounded-lg">
                 Learn More
               </button>

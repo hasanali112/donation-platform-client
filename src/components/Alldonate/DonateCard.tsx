@@ -32,7 +32,7 @@ const DonateCard = ({
       <div>
         <img src={image} alt="" className="rounded-sm" />
       </div>
-      <div className="bg-white border rounded-md   w-[95%] h-[57%] mx-auto -translate-y-[40px]">
+      <div className="bg-white border-b-4 border-blue-600 rounded-md   w-[95%] h-[52%] mx-auto -translate-y-[40px]">
         <div className="p-3 mt-5 space-y-4">
           <h1 className="text-xl font-bold">{title}</h1>
           <Progress value={60} className="h-2" />

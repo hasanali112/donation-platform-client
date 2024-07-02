@@ -1,11 +1,8 @@
-import TopNav from "@/components/layout/DashboardLayout/TopNav";
 import { useForm, SubmitHandler } from "react-hook-form";
-import dash from "../../assets/dash.jpg";
-import avatar from "../../assets/avatar.png";
 import { useAddDonationPostMutation } from "@/redux/api/baseApi";
 import { Inputs } from "@/type/type";
 
-const AddPost = () => {
+const AddBlog = () => {
   const [addDonationPost, { isError }] = useAddDonationPostMutation();
 
   const { register, handleSubmit, reset } = useForm<Inputs>();
@@ -20,36 +17,13 @@ const AddPost = () => {
   }
 
   return (
-    <div>
-      <TopNav />
-
-      <div className="bg-gray-100">
-        <div className="h-[200px]">
-          <img src={dash} alt="" className="h-[150px] w-full object-cover" />
-        </div>
-        <div className="grid grid-cols-12 gap-4 ml-3 p-2 lg:ml-16 -translate-y-24">
-          <div className="bg-white h-[400px] w-full rounded-lg col-span-12 lg:col-span-3">
-            <div className="flex flex-col justify-center items-center">
-              <img src={avatar} alt="" className="w-[200px] -translate-y-9" />
-              <div className="-translate-y-[71px]">
-                <h1>JOHN STOCKDELL</h1>
-                <p>Deputy Director</p>
-              </div>
+    <div className="bg-slate-200 h-screen p-5">
+      <div className="bg-white p-2 w-[80%] mx-auto rounded-lg">
+        <div className=" bg-gray-100 p-10 rounded-lg">
+          <div className=" h-[400px] w-full rounded-lg">
+            <div className="border-b h-[50px] ">
+              <h1 className="text-3xl font-semibold">Create Blog here</h1>
             </div>
-            <div className="-translate-y-[55px] px-2 ">
-              <h1 className="p-3 bg-gray-50 mb-1 rounded-md shadow-sm border hover:-translate-y-2 duration-500">
-                Totol Donation: $0
-              </h1>
-              <h1 className="p-3 bg-gray-50 mb-1 rounded-md shadow-sm border hover:-translate-y-2 duration-500">
-                Totol Post: 0
-              </h1>
-              <h1 className="p-3 bg-gray-50 mb-1 rounded-md shadow-sm border hover:-translate-y-2 duration-500">
-                Totol Contribution: 0
-              </h1>
-            </div>
-          </div>
-          <div className="bg-white h-[400px] w-full rounded-lg col-span-12 lg:col-span-7">
-            <div className="border-b h-[50px] "></div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-col-12 gap-3 p-3">
                 <div className="  col-span-12 p-2">
@@ -112,7 +86,7 @@ const AddPost = () => {
                     className="bg-purple-500 p-2 rounded-lg text-white text-xl font-base"
                     type="submit"
                   >
-                    Submit
+                    Create Blog
                   </button>
                 </div>
               </div>
@@ -124,4 +98,4 @@ const AddPost = () => {
   );
 };
 
-export default AddPost;
+export default AddBlog;

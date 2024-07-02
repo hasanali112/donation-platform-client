@@ -48,7 +48,7 @@ const TableModal = ({ _id }: TpropId) => {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <button>
+          <button className="bg-blue-600 text-white p-1 rounded-lg">
             <SquarePen />
           </button>
         </DialogTrigger>

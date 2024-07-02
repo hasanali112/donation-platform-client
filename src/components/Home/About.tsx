@@ -2,6 +2,7 @@ import Container from "../layout/shared/Container";
 import aboutImg from "../../assets/ab1.jpg";
 import aboutImg2 from "../../assets/ab2.png";
 import "./../../style/about.css";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -26,9 +27,11 @@ const About = () => {
               the lives of others.
             </p>
             <div className="flex gap-4 mt-10">
-              <button className="p-3 w-36 text-white font-semibold bg-cyan-600 rounded-lg">
-                Donate
-              </button>
+              <Link to="/donation-checkout">
+                <button className="p-3 w-36 text-white font-semibold bg-blue-700 rounded-lg">
+                  Donate
+                </button>
+              </Link>
               <button className="p-3 w-36 text-white font-semibold bg-gray-600 rounded-lg">
                 Learn More
               </button>
