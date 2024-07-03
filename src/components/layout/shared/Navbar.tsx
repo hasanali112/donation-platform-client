@@ -69,7 +69,7 @@ const Navbar = () => {
                 <span className="effectNav"></span>
               </li>
               <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
-                <Link to="/donations"> All Donate</Link>
+                <Link to="/donations"> Campains</Link>
                 <span className="effectNav"></span>
               </li>
               {user && (

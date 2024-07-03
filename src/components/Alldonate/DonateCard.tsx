@@ -22,6 +22,8 @@ const DonateCard = ({
   description,
   _id,
 }: TPropsClass) => {
+  const calculateValue = (100 / 2500) * Number(amount);
+
   return (
     <div
       className={cn(
@@ -35,9 +37,13 @@ const DonateCard = ({
       <div className="bg-white border-b-4 border-blue-600 rounded-md   w-[95%] h-[52%] mx-auto -translate-y-[40px]">
         <div className="p-3 mt-5 space-y-4">
           <h1 className="text-xl font-bold">{title}</h1>
-          <Progress value={60} className="h-2" />
+          <Progress
+            value={calculateValue}
+            className={
+              calculateValue > 60 ? `h-2 bg-emerald-500` : "bg-blue-600"
+            }
+          />
           <p className="mt-2">
-            {" "}
             <span className="font-semibold">${amount}</span>{" "}
             <span className="text-gray-500">donated of</span>{" "}
             <span className="font-semibold">$2,500</span>
