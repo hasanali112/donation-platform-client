@@ -16,7 +16,7 @@ const Footer = () => {
               <Link to="/" className="flex items-center gap-1 ">
                 <img src={logo} alt="" className="w-12" />
                 <span className="text-3xl font-bold">
-                  Rebuild <span className="text-cyan-400">Rising</span>
+                  Rebuild <span className="text-blue-600">Rising</span>
                 </span>
               </Link>
               <div className="mt-2 mb-3">
@@ -61,7 +61,7 @@ const Footer = () => {
               placeholder="Enter your email"
               className="w-[250px] h-[40px] mt-3 rounded-md bg-transparent border border-white pl-4"
             />
-            <Button className="bg-cyan-500 ml-1 h-[40px] rounded-md -translate-y-[2px]">
+            <Button className="bg-blue-600 ml-1 h-[40px] rounded-md -translate-y-[2px]">
               Submit
             </Button>
             <div className="mt-6">

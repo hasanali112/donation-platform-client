@@ -27,21 +27,19 @@ const DonateCard = ({
   return (
     <div
       className={cn(
-        `border bg-gray-100  lg:w-[390px] lg:h-[550px] h-[500px] rounded-sm  hover:-translate-y-3 duration-500 lg:hover:scale-110  shadow-sm shadow-gray-200`,
+        `border bg-gray-100  lg:min-w-[370px] lg:h-[550px] h-[510px] rounded-sm  hover:-translate-y-3 duration-500 lg:hover:scale-110  shadow-sm shadow-gray-200`,
         className
       )}
     >
       <div>
         <img src={image} alt="" className="rounded-sm" />
       </div>
-      <div className="bg-white border-b-4 border-blue-600 rounded-md   w-[95%] h-[52%] mx-auto -translate-y-[40px]">
+      <div className="bg-white border-b-4 border-blue-600 rounded-md   w-[95%] h-[55%] mx-auto -translate-y-[60px]">
         <div className="p-3 mt-5 space-y-4">
           <h1 className="text-xl font-bold">{title}</h1>
           <Progress
             value={calculateValue}
-            className={
-              calculateValue > 60 ? `h-2 bg-emerald-500` : "bg-blue-600"
-            }
+            className={calculateValue > 60 ? `h-2 bg-[#3dbdb6]` : "bg-blue-600"}
           />
           <p className="mt-2">
             <span className="font-semibold">${amount}</span>{" "}

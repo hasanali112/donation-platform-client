@@ -1,9 +1,11 @@
 import Container from "@/components/layout/shared/Container";
 import AmmassadorCard from "./AmmassadorCard";
+import AllStaticCard from "./AllStaticCard";
+import AllStaticSeceond from "./AllStaticSeceond";
 
 const Ammassador = () => {
   return (
-    <div className="bg-indigo-800 text-white h-screen pt-28">
+    <div className="bg-indigo-700 text-white  pt-28">
       <Container>
         <h1 className="text-4xl font-bold text-center">
           Join us and beacome an abasssador
@@ -12,6 +14,10 @@ const Ammassador = () => {
           <AmmassadorCard />
           <AmmassadorCard />
           <AmmassadorCard />
+        </div>
+        <div className=" pt-20 pb-20">
+          <AllStaticCard />
+          <AllStaticSeceond />
         </div>
       </Container>
     </div>

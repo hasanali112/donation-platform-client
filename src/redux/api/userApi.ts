@@ -23,7 +23,19 @@ export const userApi = createApi({
       }),
       providesTags: ["user"],
     }),
+
+    getUserByEmail: builder.query({
+      query: ({ query: email }) => ({
+        url: `/users/${email}`,
+        method: "GET",
+      }),
+      providesTags: ["user"],
+    }),
   }),
 });
 
-export const { useCreateUserMutation, useGetUserQuery } = userApi;
+export const {
+  useCreateUserMutation,
+  useGetUserQuery,
+  useGetUserByEmailQuery,
+} = userApi;

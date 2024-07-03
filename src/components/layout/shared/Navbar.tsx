@@ -5,11 +5,22 @@ import Container from "./Container";
 import logo from "../../../assets/logo2.png";
 import { AuthContext } from "@/providers/AuthProviders";
 import Swal from "sweetalert2";
+import { useGetUserQuery } from "@/redux/api/userApi";
+
+export type TUser = {
+  _id: string;
+  name: string;
+  photo: string;
+  userName: string;
+  email: string;
+  role: string;
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const context = useContext(AuthContext);
+  const { data } = useGetUserQuery(undefined);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +47,12 @@ const Navbar = () => {
   }
 
   const { user, logout } = context;
+
+  const admin = data?.find(
+    (userDb: TUser) => userDb.role === "admin" && userDb.email === user?.email
+  );
+
+  const dashboardPath = admin ? "admin-dashboard" : "user-dashboard";
 
   const handleLogout = () => {
     logout();
@@ -72,8 +89,12 @@ const Navbar = () => {
                 <Link to="/donations"> Campains</Link>
                 <span className="effectNav"></span>
               </li>
+              <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
+                <Link to="/members"> Our Teams</Link>
+                <span className="effectNav"></span>
+              </li>
               {user && (
-                <Link to="/dashboard">
+                <Link to={`/${dashboardPath}`}>
                   <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
                     Dashboard
                   </li>

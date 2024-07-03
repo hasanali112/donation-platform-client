@@ -76,7 +76,17 @@ const Login = () => {
       </Link>
       <div className="lg:w-[70%] mx-auto h-[500px] mt-20 p-5">
         <div className="flex flex-col lg:ml-40">
-          <h1 className="text-left text-4xl font-bold">Login</h1>
+          <div className="border rounded-lg p-4">
+            <h1>Admin</h1>
+            <h1>Email: mdhasan.ru.ro@gmail.com </h1>
+            <h1>Password: 123456</h1>
+          </div>
+          <div className="border rounded-lg p-4 mt-4">
+            <h1>user</h1>
+            <h1>Email: mdhasan.ru.ro@gmail.com </h1>
+            <h1>Password: 123456</h1>
+          </div>
+          <h1 className="text-left text-4xl font-bold mt-5">Login</h1>
           <p className="text-xl mt-3 mb-5">
             Welcome back! Please enter your details.
           </p>

@@ -1,14 +1,15 @@
-// import { FolderPlus, LayoutDashboard, StickyNote } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo2.png";
 import {
   BadgeDollarSign,
+  BookmarkPlus,
   File,
   Handshake,
   LineChart,
   MessageSquarePlus,
   SquarePlus,
-  UsersRound,
+  User,
+  UserRound,
 } from "lucide-react";
 import { useGetUserQuery } from "@/redux/api/userApi";
 import { useContext } from "react";
@@ -24,13 +25,17 @@ type TUser = {
 };
 
 const Sidebar = () => {
-  const { data } = useGetUserQuery(undefined);
+  const { data, isLoading } = useGetUserQuery(undefined);
   const context = useContext(AuthContext);
   if (!context) {
     return <p>null</p>;
   }
 
   const { user } = context;
+
+  if (isLoading) {
+    return <p>Loading....</p>;
+  }
 
   const admin = data?.find(
     (userDb: TUser) => userDb.role === "admin" && userDb.email === user?.email
@@ -48,7 +53,7 @@ const Sidebar = () => {
         <hr className="opacity-30" />
         {admin ? (
           <ul className="flex flex-col gap-6 p-1 lg:p-5">
-            <Link to="/dashboard">
+            <Link to="/admin-dashboard">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
                   <LineChart />
@@ -56,15 +61,15 @@ const Sidebar = () => {
                 Insight
               </li>
             </Link>
-            <Link to="/dashboard/user-manage">
+            <Link to="/admin-dashboard/user-manage">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
-                  <UsersRound />
+                  <UserRound />
                 </span>{" "}
                 User Manage
               </li>
             </Link>
-            <Link to="/dashboard/campains">
+            <Link to="/admin-dashboard/campains">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
                   <Handshake />
@@ -72,7 +77,7 @@ const Sidebar = () => {
                 Campains
               </li>
             </Link>
-            <Link to="/dashboard/blogs">
+            <Link to="/admin-dashboard/blogs">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
                   <File />
@@ -80,7 +85,7 @@ const Sidebar = () => {
                 Blogs
               </li>
             </Link>
-            <Link to="/dashboard/financial-stats">
+            <Link to="/admin-dashboard/financial-stats">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
                   <BadgeDollarSign />
@@ -88,7 +93,7 @@ const Sidebar = () => {
                 Financal Stats
               </li>
             </Link>
-            <Link to="/dashboard/create-campain">
+            <Link to="/admin-dashboard/create-campain">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
                   <SquarePlus />
@@ -96,7 +101,7 @@ const Sidebar = () => {
                 Add Campain
               </li>
             </Link>
-            <Link to="/dashboard/create-blog">
+            <Link to="/admin-dashboard/create-blog">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
                   <MessageSquarePlus />
@@ -107,89 +112,41 @@ const Sidebar = () => {
           </ul>
         ) : (
           <ul className="flex flex-col gap-6 p-1 lg:p-5">
-            <Link to="/dashboard">
+            <Link to="/user-dashboard">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
-                  <LineChart />
-                </span>{" "}
-                Insight
+                  <User />
+                </span>
+                User Profile
               </li>
             </Link>
-            <Link to="/dashboard/user-manage">
+            <Link to="/user-dashboard/favourite-campain">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
-                  <UsersRound />
+                  <BookmarkPlus />
                 </span>{" "}
-                User Manage
+                Fav Campains
               </li>
             </Link>
-            <Link to="/dashboard/campains">
-              <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
-                <span>
-                  <Handshake />
-                </span>{" "}
-                Campains
-              </li>
-            </Link>
-            <Link to="/dashboard/blogs">
+            <Link to="/user-dashboard/total-donation">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
                   <File />
                 </span>{" "}
-                Blogs
+                Total Donations
               </li>
             </Link>
-            <Link to="/dashboard/financial-stats">
+            {/* <Link to="/user-dashboard/receipt">
               <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
                 <span>
                   <BadgeDollarSign />
                 </span>{" "}
-                Financal Stats
+                Donation Receipts
               </li>
-            </Link>
-            <Link to="/dashboard/create-campain">
-              <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
-                <span>
-                  <SquarePlus />
-                </span>{" "}
-                Add Campain
-              </li>
-            </Link>
-            <Link to="/dashboard/create-blog">
-              <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
-                <span>
-                  <MessageSquarePlus />
-                </span>
-                Add Blog
-              </li>
-            </Link>
+            </Link> */}
           </ul>
         )}
       </div>
-
-      {/* <nav className="flex flex-col gap-3 p-1 lg:p-5">
-        <Link
-          to="/dashboard"
-          className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2"
-        >
-          <LayoutDashboard className="shrink-0" />
-          <span className="truncate"> Dashboard</span>
-        </Link>
-        <Link
-          to="/dashboard/donations"
-          className="lg:p-3 p-1 rounded-md hover:bg-gray-700 flex items-center gap-2"
-        >
-          <StickyNote className="shrink-0" />
-          <span className="truncate"> All Post</span>
-        </Link>
-        <Link
-          to="/dashboard/create-donation"
-          className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2"
-        >
-          <FolderPlus className="shrink-0" />
-          <span className="truncate"> Add Post</span>
-        </Link>
-      </nav> */}
     </aside>
   );
 };

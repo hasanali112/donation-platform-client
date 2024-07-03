@@ -1,5 +1,11 @@
+import UserProfileState from "@/components/dashboardCompo/user/UserProfileState";
+
 const UserProfile = () => {
-  return <div>userprofile</div>;
+  return (
+    <div>
+      <UserProfileState />
+    </div>
+  );
 };
 
 export default UserProfile;

@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <div className="bg-[#151422] text-white">
       <Container>
-        <div className="grid grid-cols-12  items-center pt-16">
+        <div className="grid grid-cols-12  items-center pt-[59px]">
           <div className="lg:col-span-5 col-span-12">
             <h1 className="text-4xl font-bold">Welcome to Rebuild Rising</h1>
             <p className="mt-3 lg:min-w-[55ch] text-base">

@@ -13,12 +13,14 @@ const DonationPost = () => {
   const handleNext = () => {
     if (boxContainerRef.current) {
       const width = boxContainerRef.current.clientWidth;
+      boxContainerRef.current.style.scrollBehavior = "smooth";
       boxContainerRef.current.scrollLeft += width;
     }
   };
   const handlePre = () => {
     if (boxContainerRef.current) {
       const width = boxContainerRef.current.clientWidth;
+      boxContainerRef.current.style.scrollBehavior = "smooth";
       boxContainerRef.current.scrollLeft -= width;
     }
   };

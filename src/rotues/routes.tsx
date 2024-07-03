@@ -8,9 +8,14 @@ import ContentManage from "@/pages/Dashboard/admin/ContentManage";
 import FinancialReport from "@/pages/Dashboard/admin/FinancialReport";
 import UserManagement from "@/pages/Dashboard/admin/UserManagement";
 import Dashboard from "@/pages/Dashboard/Dashboard";
+import DonationHistory from "@/pages/Dashboard/user/DonationHistory";
+import DonationRecipt from "@/pages/Dashboard/user/DonationRecipt";
+import FavouriteCampain from "@/pages/Dashboard/user/FavouriteCampain";
+import UserProfile from "@/pages/Dashboard/user/UserProfile";
 import DonationForm from "@/pages/DonationForm";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
+import OurTeam from "@/pages/OurTeam";
 import PostDetail from "@/pages/PostDetail";
 import Registration from "@/pages/Registration";
 import PrivateRoutes from "@/providers/PrivateRoutes";
@@ -29,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "donations",
         element: <AllDonate />,
+      },
+      {
+        path: "members",
+        element: <OurTeam />,
       },
       {
         path: "donations/:id",
@@ -57,7 +66,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "/admin-dashboard",
     element: <DashboardLayout />,
     children: [
       {
@@ -91,6 +100,32 @@ const router = createBrowserRouter([
       {
         path: "create-blog",
         element: <AddBlog />,
+      },
+    ],
+  },
+  {
+    path: "/user-dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: (
+          <PrivateRoutes>
+            <UserProfile />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "favourite-campain",
+        element: <FavouriteCampain />,
+      },
+      {
+        path: "total-donation",
+        element: <DonationHistory />,
+      },
+      {
+        path: "receipt",
+        element: <DonationRecipt />,
       },
     ],
   },

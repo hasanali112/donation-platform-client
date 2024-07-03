@@ -4,6 +4,7 @@ import HeroSection from "@/components/Home/HeroSection";
 import Scroll from "@/components/Home/Scroll";
 import Ammassador from "@/components/Home/ambassador/Ammassador";
 import Gellary from "@/components/Home/gellary/Gellary";
+import Team from "@/components/Home/team/Team";
 
 import Testimonial from "@/components/Home/testimonial/Testimonial";
 
@@ -15,6 +16,7 @@ const Home = () => {
       <Testimonial />
       <Gellary />
       <Ammassador />
+      <Team />
       <About />
       <Scroll />
     </div>
