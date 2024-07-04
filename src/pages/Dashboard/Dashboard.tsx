@@ -2,7 +2,7 @@ import DashboardHome from "@/components/dashboardCompo/admin/DashboardHome";
 import Chart from "@/components/dashboardCompo/charts/Chart";
 import DonateChart from "@/components/dashboardCompo/charts/DonateChart";
 import TotalPost from "@/components/dashboardCompo/charts/TotalPost";
-import TopNav from "@/components/layout/DashboardLayout/TopNav";
+
 import { useGetAllStateQuery } from "@/redux/api/donationApi";
 
 const Dashboard = () => {
@@ -17,9 +17,8 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="bg-slate-200 ">
-      <TopNav />
-      <div className="grid grid-cols-3 w-[85%] mx-auto gap-2 mt-10">
+    <div className="bg-[#081939]  pt-10">
+      <div className="grid grid-cols-3 w-[85%] mx-auto gap-2 ">
         <DashboardHome title="Total User" totalUser={data?.totalUser} />
         <DashboardHome
           title="Total Campains"
@@ -32,7 +31,7 @@ const Dashboard = () => {
           <h1 className="text-2xl font-bold text-center mb-2">Total Fund</h1>
           <DonateChart />
         </div>
-        <div className="bg-white mt-5 p-4 rounded-lg w-full h-[400px] flex flex-col justify-center items-center col-span-10 lg:col-span-6">
+        <div className="bg-white bg-opacity-10 backdrop-blur-sm backdrop-filter mt-5 p-4 rounded-lg w-full h-[400px] flex flex-col justify-center items-center col-span-10 lg:col-span-6">
           <h1 className="text-2xl font-bold text-center">Total Post</h1>
           <TotalPost />
         </div>

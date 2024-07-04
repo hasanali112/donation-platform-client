@@ -21,7 +21,7 @@ const DashboardHome = ({
   totalBlog,
 }: TProps) => {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[350px] bg-white text-gray-400 bg-opacity-10 backdrop-blur-sm backdrop-filter">
       <CardHeader>
         <CardTitle className="text-center text-3xl">{title}</CardTitle>
         <CardDescription className="text-3xl text-center font-bold">

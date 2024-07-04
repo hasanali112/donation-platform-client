@@ -1,6 +1,11 @@
 import { AuthContext } from "@/providers/AuthProviders";
 import { useContext } from "react";
 import UserDropDown from "./UserDropDown";
+import { Button } from "@/components/ui/button";
+import { Search } from "lucide-react";
+import MailDropDown from "./TopnavDrop/MailDropDown";
+import Notification from "./TopnavDrop/Notification";
+import { Link } from "react-router-dom";
 
 const TopNav = () => {
   const context = useContext(AuthContext);
@@ -12,45 +17,29 @@ const TopNav = () => {
   const { user } = context;
 
   return (
-    <div className="bg-white  h-[57px] w-full  border-b-0 shadow-md sticky top-0 z-10">
-      <div className="flex lg:justify-end items-center lg:mr-20 lg:space-x-10  space-x-2 pt-2">
-        <div className="flex  items-center">
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 mr-20"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-              />
-            </svg>
-          </span>
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-              />
-            </svg>
-          </span>
+    <div className="h-[59px] w-full bg-[#112143] shadow-2xl sticky top-0 z-10 border-b border-[#59647c] pt-3">
+      <div className="flex justify-between items-center ">
+        <div className="ml-10">
+          <Link to="/">
+            {" "}
+            <Button className="bg-blue-600">Got to Home</Button>
+          </Link>
         </div>
-        <div className="flex items-center">
-          <h1>{user ? user.displayName : "User"}</h1>
-          <UserDropDown />
+        <div>
+          <div className="flex items-center mr-10 space-x-10">
+            <div>
+              <Search />
+              <span></span>
+            </div>
+            <Notification />
+
+            <MailDropDown />
+
+            <div className="flex items-center">
+              <h1>{user ? user.displayName : "User"}</h1>
+              <UserDropDown />
+            </div>
+          </div>
         </div>
       </div>
     </div>

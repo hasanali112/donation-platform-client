@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAddDonationPostMutation } from "@/redux/api/baseApi";
 import { Inputs } from "@/type/type";
-import TopNav from "@/components/layout/DashboardLayout/TopNav";
 
 const AddCampian = () => {
   const [addDonationPost, { isError }] = useAddDonationPostMutation();
@@ -19,7 +18,6 @@ const AddCampian = () => {
 
   return (
     <div>
-      <TopNav />
       <div className="bg-slate-200 h-screen p-5">
         <div className="bg-white p-2 w-[80%] mx-auto rounded-lg">
           <div className=" bg-gray-100 p-10 rounded-lg">
