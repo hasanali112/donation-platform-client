@@ -68,7 +68,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] text-white h-[110vh]">
+    <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] text-white h-[1100px]">
       <Container>
         <Link to="/" className="flex items-center gap-1 pt-6">
           <img src={logo} alt="" className="w-12" />

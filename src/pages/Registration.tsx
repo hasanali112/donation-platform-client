@@ -82,7 +82,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] text-white h-[150vh]">
+    <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] text-white h-[1100px]">
       <Container>
         <Link to="/" className="flex items-center gap-1 pt-6">
           <img src={logo} alt="" className="w-12" />
@@ -170,9 +170,9 @@ const Registration = () => {
                   </button>
                 </div>
                 <p className="mt-10 text-gray-300">
-                  No registration yet?{" "}
-                  <Link to="/register" className="text-violet-500">
-                    Create an account
+                  Alread have a account?{" "}
+                  <Link to="/login" className="text-violet-500">
+                    login
                   </Link>
                 </p>
               </div>
@@ -184,7 +184,7 @@ const Registration = () => {
                     className="w-full h-[930px] object-cover rounded-r-lg"
                   />
                   <div className="w-full h-[930px] object-cover rounded-r-lg bg-black bg-opacity-65 absolute top-0">
-                    <h1 className="text-gray-300 text-3xl mt-[300px] ml-10 font-bold text-center">
+                    <h1 className="text-gray-300 text-3xl mt-40 ml-10 font-bold text-center">
                       Welcome to Rebuild Rising
                     </h1>
                     <p className="ml-4 mt-5 text-gray-400 text-center">
