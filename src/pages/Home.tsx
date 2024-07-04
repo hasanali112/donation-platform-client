@@ -3,6 +3,7 @@ import DonationPost from "@/components/Home/DonationPost";
 import HeroSection from "@/components/Home/HeroSection";
 import Scroll from "@/components/Home/Scroll";
 import Ammassador from "@/components/Home/ambassador/Ammassador";
+import EventBanner from "@/components/Home/event/EventBanner";
 import Gellary from "@/components/Home/gellary/Gellary";
 import Team from "@/components/Home/team/Team";
 
@@ -17,6 +18,7 @@ const Home = () => {
       <Gellary />
       <Ammassador />
       <Team />
+      <EventBanner />
       <About />
       <Scroll />
     </div>

@@ -67,7 +67,9 @@ const Navbar = () => {
     <div className={"sticky top-0 z-10"}>
       <div
         className={
-          scrolled ? "bg-white text-black shadow-md" : "bg-[#151422] text-white"
+          scrolled
+            ? "bg-white text-black shadow-md"
+            : "bg-gradient-to-r from-[#211e3d] to-[#561c3e] text-white"
         }
       >
         <Container className="flex justify-between items-center p-5 ">

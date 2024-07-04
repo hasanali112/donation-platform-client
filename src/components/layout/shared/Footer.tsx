@@ -8,7 +8,7 @@ import link from "@/assets/link.png";
 
 const Footer = () => {
   return (
-    <div className="bg-[#151422] text-white">
+    <div className=" text-white border-t-4 bg-gradient-to-r from-[#211e3d] to-[#561c3e]">
       <Container>
         <div className="grid grid-cols-12 gap-5  pb-4">
           <div className=" col-span-12 lg:col-span-3 ">

@@ -4,7 +4,7 @@ import hero from "./../../assets/hero.png";
 
 const HeroSection = () => {
   return (
-    <div className="bg-[#151422] text-white">
+    <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] text-white">
       <Container>
         <div className="grid grid-cols-12  items-center pt-[59px]">
           <div className="lg:col-span-5 col-span-12">

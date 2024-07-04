@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Team = () => {
   return (
-    <div className="pt-28 pb-28">
+    <div className="pt-36 pb-20">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12">
           <div className="col-span-7">

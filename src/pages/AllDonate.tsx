@@ -8,7 +8,7 @@ const AllDonate = () => {
     <div className="bg-slate-200 pt-28">
       <Container>
         <div className="flex lg:flex-row flex-col-reverse">
-          <div className="bg-white shadow-md lg:h-[370px] my-auto p-5">
+          <div className="bg-white shadow-md lg:h-[370px] my-auto p-5 rounded-l-md">
             <h1 className="text-blue-600 text-xl font-semibold mt-10 ml-8">
               Joint The Fight
             </h1>
@@ -29,6 +29,7 @@ const AllDonate = () => {
             <img
               src="https://images.unsplash.com/photo-1538688423619-a81d3f23454b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
+              className="rounded-md"
             />
           </div>
         </div>

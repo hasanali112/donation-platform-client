@@ -13,6 +13,7 @@ import DonationRecipt from "@/pages/Dashboard/user/DonationRecipt";
 import FavouriteCampain from "@/pages/Dashboard/user/FavouriteCampain";
 import UserProfile from "@/pages/Dashboard/user/UserProfile";
 import DonationForm from "@/pages/DonationForm";
+import Event from "@/pages/Event";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import OurTeam from "@/pages/OurTeam";
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "members",
         element: <OurTeam />,
+      },
+      {
+        path: "events",
+        element: <Event />,
       },
       {
         path: "donations/:id",

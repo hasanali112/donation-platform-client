@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Gellary = () => {
   return (
-    <div className="lg:mt-3 pt-28 ">
+    <div className="lg:mt-3 pt-20 ">
       <Container>
         <div className="grid grid-cols-6 lg:grid-cols-12 gap-[50px] px-4">
           <div className="lg:col-span-6 col-span-6  mt-20">

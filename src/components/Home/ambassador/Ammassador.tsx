@@ -5,7 +5,7 @@ import AllStaticSeceond from "./AllStaticSeceond";
 
 const Ammassador = () => {
   return (
-    <div className="bg-indigo-700 text-white  pt-28">
+    <div className="bg-gradient-to-r from-[#211e3d] to-[#561c3e] text-white  pt-24">
       <Container>
         <h1 className="text-4xl font-bold text-center">
           Join us and beacome an abasssador
