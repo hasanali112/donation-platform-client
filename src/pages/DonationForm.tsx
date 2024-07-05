@@ -1,8 +1,10 @@
 import Container from "@/components/layout/shared/Container";
 import { AuthContext } from "@/providers/AuthProviders";
 import { useAddPaymentMutation } from "@/redux/api/donationApi";
+import getMonthName from "@/utils/calculatedDate";
 import { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export type Inputs = {
@@ -19,6 +21,7 @@ const DonationForm = () => {
   const context = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm<Inputs>();
   const [addPayment] = useAddPaymentMutation();
+  const { id } = useParams();
 
   if (!context) {
     return null;
@@ -28,7 +31,12 @@ const DonationForm = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      await addPayment(data).unwrap(); // Ensure the mutation is awaited and unwrapped to handle errors properly
+      const payementData = {
+        paymentId: id,
+        month: getMonthName,
+        ...data,
+      };
+      await addPayment(payementData).unwrap(); // Ensure the mutation is awaited and unwrapped to handle errors properly
       Swal.fire({
         title: "Donate!",
         text: "Donation successfully!",

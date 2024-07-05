@@ -29,6 +29,13 @@ export const donationApi = createApi({
       }),
     }),
 
+    getCalculationAmount: builder.query({
+      query: () => ({
+        url: "/amount-calculation",
+        method: "GET",
+      }),
+    }),
+
     getPaymentById: builder.query({
       query: (id) => ({
         url: `/donations/${id}`,
@@ -42,6 +49,7 @@ export const donationApi = createApi({
 export const {
   useAddPaymentMutation,
   useGetPaymentQuery,
+  useGetCalculationAmountQuery,
   useGetPaymentByIdQuery,
   useGetAllStateQuery,
 } = donationApi;

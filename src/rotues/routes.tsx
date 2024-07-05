@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "donation-checkout",
+        path: "donations/:id/donation-checkout",
         element: (
           <PrivateRoutes>
             <DonationForm />

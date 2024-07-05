@@ -8,52 +8,51 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  {
-    name: "Sun",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Mon",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Tus",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Wed",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Thu",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Fri",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Sat",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+type TData = {
+  totalUser: number;
+  totalCampain: number;
+  totalBlog: number;
+};
 
-const TotalPost = () => {
+const TotalPost = ({ data: PostData }: { data: TData }) => {
+  const data = [
+    {
+      name: "Sun",
+      campain: PostData.totalCampain,
+      amt: 2400,
+    },
+    {
+      name: "Mon",
+      campain: PostData.totalCampain,
+      amt: 2210,
+    },
+    {
+      name: "Tus",
+      campain: 10,
+      amt: 2290,
+    },
+    {
+      name: "Wed",
+      campain: 15,
+      amt: 2000,
+    },
+    {
+      name: "Thu",
+      campain: 20,
+      amt: 2181,
+    },
+    {
+      name: "Fri",
+      campain: 28,
+      amt: 2500,
+    },
+    {
+      name: "Sat",
+      campain: 40,
+      amt: 2100,
+    },
+  ];
+
   return (
     <div style={{ width: "100%", height: 300 }}>
       <ResponsiveContainer>
@@ -70,7 +69,12 @@ const TotalPost = () => {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+          <Area
+            type="monotone"
+            dataKey="campain"
+            stroke="#8884d8"
+            fill="#0d99ff"
+          />
         </AreaChart>
       </ResponsiveContainer>
     </div>

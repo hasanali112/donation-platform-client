@@ -1,12 +1,3 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-
 type TProps = {
   title: string;
   totalUser?: number;
@@ -21,17 +12,22 @@ const DashboardHome = ({
   totalBlog,
 }: TProps) => {
   return (
-    <Card className="w-[350px] bg-white text-gray-400 bg-opacity-10 backdrop-blur-sm backdrop-filter">
-      <CardHeader>
-        <CardTitle className="text-center text-3xl">{title}</CardTitle>
-        <CardDescription className="text-3xl text-center font-bold">
-          {totalUser || totalCampain || totalBlog}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Progress value={totalUser || totalCampain || totalBlog} />
-      </CardContent>
-    </Card>
+    <div className="w-[287px] h-[120px] bg-[#112143] border-t border-[#0d99ff]">
+      <div>
+        <h1 className="text-center mt-3">{title}</h1>
+        <h1 className="text-center mt-3">
+          {totalUser || totalCampain || totalBlog || totalBlog}
+        </h1>
+        <p className="text-center mt-3 text-blue-400">
+          Increase rate{" "}
+          {(totalUser && 12.06) ||
+            (totalCampain && 8.5) ||
+            (totalBlog && 9.7) ||
+            (totalBlog && 20.88)}
+          %
+        </p>
+      </div>
+    </div>
   );
 };
 

@@ -11,7 +11,6 @@ import {
   Users,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -41,15 +40,15 @@ const UserDropDown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost">
+        <div className="cursor-pointer">
           <img
             src={user?.photoURL || undefined}
             alt=""
             className="w-10 h-10 rounded-full"
           />
-        </Button>
+        </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 border-b-4 border-blue-600">
+      <DropdownMenuContent className="w-56 bg-[#0d1e3f] border-0 text-zinc-400">
         <DropdownMenuLabel>
           <h1>{user?.email}</h1>
         </DropdownMenuLabel>

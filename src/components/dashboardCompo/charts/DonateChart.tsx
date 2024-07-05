@@ -1,3 +1,4 @@
+import { useGetCalculationAmountQuery } from "@/redux/api/donationApi";
 import {
   BarChart,
   Bar,
@@ -7,59 +8,57 @@ import {
   CartesianGrid,
   Legend,
   ResponsiveContainer,
+  LabelList,
 } from "recharts";
 
+type TPayment = {
+  _id: string;
+  totalAmount: number;
+  month: string;
+};
+
+const monthOrder = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+type TShortData = {
+  name: string;
+  amount: number;
+  amt: number;
+};
+
 const DonateChart = () => {
-  const data = [
-    {
-      name: "Jan",
-      high: 4000,
-      low: 2400,
-      amt: 2400,
-    },
-    {
-      name: "Feb",
-      high: 3000,
-      low: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Mar",
-      low: 2000,
-      high: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Apr",
-      low: 2780,
-      high: 3908,
-      amt: 2000,
-    },
-    {
-      name: "May",
-      low: 1890,
-      high: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Jun",
-      low: 2390,
-      high: 3800,
-      amt: 2500,
-    },
-    {
-      name: "July",
-      low: 3490,
-      high: 4300,
-      amt: 2100,
-    },
-  ];
+  const { data: paymentCalculation } = useGetCalculationAmountQuery(undefined);
+
+  const paymentData = paymentCalculation
+    ?.map((payment: TPayment) => ({
+      name: payment._id,
+      amount: payment.totalAmount,
+      amt: payment.totalAmount,
+    }))
+    .sort(
+      (a: TShortData, b: TShortData) =>
+        monthOrder.indexOf(a.name) - monthOrder.indexOf(b.name)
+    );
 
   return (
-    <div style={{ width: "100%", height: 300 }}>
+    <div style={{ width: "100%", height: 320 }} className="text-white">
       <ResponsiveContainer>
         <BarChart
-          data={data}
+          width={500}
+          height={300}
+          data={paymentData}
           margin={{
             top: 5,
             right: 30,
@@ -73,15 +72,12 @@ const DonateChart = () => {
 
           <Legend />
           <Bar
-            dataKey="low"
-            fill="#8884d8"
-            activeBar={<Rectangle fill="pink" stroke="blue" />}
-          />
-          <Bar
-            dataKey="high"
-            fill="#82ca9d"
-            activeBar={<Rectangle fill="gold" stroke="purple" />}
-          />
+            dataKey="amount"
+            fill="#0d99ff"
+            activeBar={<Rectangle fill="#57b5e8" />}
+          >
+            <LabelList dataKey="amount" position="top" />
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>

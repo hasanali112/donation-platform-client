@@ -55,7 +55,7 @@ const Sidebar = () => {
               <h1 className="bg-[#052e60] text-zinc-200 px-5 pt-3 pb-3">
                 Admin{" "}
               </h1>
-              <ul className="flex flex-col gap-10  border border-[#113969]  pl-5 pt-4 pb-4">
+              <ul className="flex flex-col gap-7  border border-[#113969]  pl-5 pt-4 pb-4">
                 <Link to="/admin-dashboard">
                   <li className="rounded-md text-sm  flex items-center gap-2 text-zinc-400">
                     <span>

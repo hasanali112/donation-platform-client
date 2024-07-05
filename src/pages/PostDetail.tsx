@@ -72,7 +72,7 @@ const PostDetail = () => {
             <hr />
             <div className="px-10 pt-4">
               <p className="text-gray-500">{data.description.slice(0, 150)}</p>
-              <Link to="/donation-checkout">
+              <Link to={`/donations/${data._id}/donation-checkout`}>
                 <Button className="w-full bg-blue-700 mt-5">Donate</Button>
               </Link>
               <Button
