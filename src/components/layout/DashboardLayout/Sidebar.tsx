@@ -6,6 +6,7 @@ import {
   File,
   Handshake,
   LineChart,
+  Loader,
   MessageSquarePlus,
   SquarePlus,
   User,
@@ -25,7 +26,7 @@ type TUser = {
 };
 
 const Sidebar = () => {
-  const { data } = useGetUserQuery(undefined);
+  const { data, isLoading } = useGetUserQuery(undefined);
   const context = useContext(AuthContext);
   if (!context) {
     return <p>null</p>;
@@ -50,7 +51,13 @@ const Sidebar = () => {
         </div>
         <hr className="opacity-30" />
         <div className="p-2">
-          {admin ? (
+          {isLoading ? (
+            <div>
+              <h1 className="bg-[#052e60] rounded-md text-zinc-200 px-5 pt-3 pb-3 inline-flex items-center gap-3">
+                <Loader className="animate-spin" /> Processing..
+              </h1>
+            </div>
+          ) : admin ? (
             <div className="mt-3">
               <h1 className="bg-[#052e60] text-zinc-200 px-5 pt-3 pb-3">
                 Admin{" "}

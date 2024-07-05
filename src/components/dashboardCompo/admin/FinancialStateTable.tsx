@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -26,8 +25,7 @@ const FinancialStateTable = () => {
     return <p>Loading............</p>;
   }
   return (
-    <Table className="bg-gray-50 p-4 rounded-md">
-      <TableCaption>Rebuil Rising Total Fund</TableCaption>
+    <Table className="bg-[#14274e]  p-4 rounded-md w-full ">
       <TableHeader>
         <TableRow>
           <TableHead className="w-[100px]">Donar Id</TableHead>

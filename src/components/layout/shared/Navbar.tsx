@@ -6,6 +6,7 @@ import logo from "../../../assets/logo2.png";
 import { AuthContext } from "@/providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useGetUserQuery } from "@/redux/api/userApi";
+import LoadingPage from "@/components/cutomsLoading/LoadingPage";
 
 export type TUser = {
   _id: string;
@@ -20,7 +21,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const context = useContext(AuthContext);
-  const { data } = useGetUserQuery(undefined);
+  const { data, isLoading } = useGetUserQuery(undefined);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,6 +48,10 @@ const Navbar = () => {
   }
 
   const { user, logout } = context;
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
 
   const admin = data?.find(
     (userDb: TUser) => userDb.role === "admin" && userDb.email === user?.email
