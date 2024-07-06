@@ -16,9 +16,17 @@ export const userApi = createApi({
       invalidatesTags: ["user"],
     }),
 
+    getAdmin: builder.query({
+      query: (email) => ({
+        url: `/users/${email}`,
+        method: "GET",
+      }),
+      providesTags: ["user"],
+    }),
+
     getUser: builder.query({
-      query: () => ({
-        url: `/users`,
+      query: (role) => ({
+        url: `/users-role?role=${role}`,
         method: "GET",
       }),
       providesTags: ["user"],
@@ -36,6 +44,7 @@ export const userApi = createApi({
 
 export const {
   useCreateUserMutation,
+  useGetAdminQuery,
   useGetUserQuery,
   useGetUserByEmailQuery,
 } = userApi;

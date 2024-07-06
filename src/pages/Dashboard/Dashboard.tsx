@@ -1,13 +1,13 @@
 import LoadingPage from "@/components/cutomsLoading/LoadingPage";
 import DashboardHome from "@/components/dashboardCompo/admin/DashboardHome";
 import FinancialStateTable from "@/components/dashboardCompo/admin/FinancialStateTable";
-import UserManageTable from "@/components/dashboardCompo/admin/UserManageTable";
 
 import DonateChart from "@/components/dashboardCompo/charts/DonateChart";
 import TotalPost from "@/components/dashboardCompo/charts/TotalPost";
 import DashboardContainer from "@/components/layout/shared/DashboardContainer";
 
 import { useGetAllStateQuery } from "@/redux/api/donationApi";
+import UserManagement from "./admin/UserManagement";
 
 const Dashboard = () => {
   const { data, isLoading, isError } = useGetAllStateQuery(undefined);
@@ -45,14 +45,9 @@ const Dashboard = () => {
             <TotalPost data={data} />
           </div>
         </div>
-        <div className="px-5 mt-7 ">
-          <div className="bg-[#112143] rounded-md pt-4">
-            <h1 className="text-center text-2xl font-bold">Our Users</h1>
-            <div className="p-1 mt-2">
-              <UserManageTable />
-            </div>
-          </div>
-          <div className="bg-[#112143] rounded-md pt-4 mt-7">
+        <div className=" mt-7 ">
+          <UserManagement />
+          <div className="bg-[#112143] rounded-md pt-4 mt-7 mx-5">
             <h1 className="text-center text-2xl font-bold">
               Transiction History
             </h1>

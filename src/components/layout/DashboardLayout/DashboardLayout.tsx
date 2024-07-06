@@ -4,11 +4,11 @@ import TopNav from "./TopNav";
 
 const DashboardLayout = () => {
   return (
-    <div className="flex bg-[#112143]">
-      <div className="  border-r border-[#59647c] w-[250px] h-screen sticky top-0 left-0 overflow-auto  text-white shadow-2xl">
+    <div className="grid grid-cols-12 bg-[#112143]">
+      <div className=" col-span-2 border-r border-[#59647c] w-full h-screen sticky top-0 left-0 overflow-auto  text-white shadow-2xl">
         <Sidebar />
       </div>
-      <div className=" text-white  w-full">
+      <div className="col-span-10 text-white  w-full">
         <TopNav />
         <Outlet />
       </div>

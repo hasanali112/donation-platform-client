@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo2.png";
 import {
@@ -12,31 +13,23 @@ import {
   User,
   UserRound,
 } from "lucide-react";
-import { useGetUserQuery } from "@/redux/api/userApi";
+import { useGetAdminQuery } from "@/redux/api/userApi";
 import { useContext } from "react";
 import { AuthContext } from "@/providers/AuthProviders";
 
-type TUser = {
-  _id: string;
-  name: string;
-  photo: string;
-  userName: string;
-  email: string;
-  role: string;
-};
-
 const Sidebar = () => {
-  const { data, isLoading } = useGetUserQuery(undefined);
   const context = useContext(AuthContext);
+
   if (!context) {
     return <p>null</p>;
   }
 
   const { user } = context;
+  const email = user?.email;
 
-  const admin = data?.find(
-    (userDb: TUser) => userDb.role === "admin" && userDb.email === user?.email
-  );
+  const { data, isLoading } = useGetAdminQuery(email, {
+    skip: !email,
+  });
 
   return (
     <aside className="">
@@ -57,7 +50,7 @@ const Sidebar = () => {
                 <Loader className="animate-spin" /> Processing..
               </h1>
             </div>
-          ) : admin ? (
+          ) : data ? (
             <div className="mt-3">
               <h1 className="bg-[#052e60] text-zinc-200 px-5 pt-3 pb-3">
                 Admin{" "}

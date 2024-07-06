@@ -31,23 +31,19 @@ const FinancialStateTable = () => {
           <TableHead className="w-[100px]">Donar Id</TableHead>
           <TableHead>Name</TableHead>
           <TableHead>Email</TableHead>
-          <TableHead>Phone number</TableHead>
-          <TableHead>Post Code</TableHead>
           <TableHead>Country</TableHead>
           <TableHead>Tranction Id</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
+          <TableHead>Amount</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {data?.map((payment: TPayment, index: number) => (
           <TableRow key={payment._id}>
             <TableCell className="font-medium">
-              {index == 0 ? 1 : index}
+              {index == 0 ? 1 : index + 1}
             </TableCell>
             <TableCell>{payment.name}</TableCell>
             <TableCell>{payment.email}</TableCell>
-            <TableCell>{payment.phoneNumber}</TableCell>
-            <TableCell>{payment.postCode}</TableCell>
             <TableCell>{payment.country}</TableCell>
             <TableCell>{payment._id}</TableCell>
             <TableCell>{payment.amount}</TableCell>

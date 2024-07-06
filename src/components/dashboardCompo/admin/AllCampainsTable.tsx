@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -32,8 +31,7 @@ const AllCampainsTable = () => {
   };
 
   return (
-    <Table className="bg-gray-50 p-4 rounded-md">
-      <TableCaption>Rebuil Rising User List</TableCaption>
+    <Table className="bg-[#14274e]  p-4 rounded-md w-full ">
       <TableHeader>
         <TableRow>
           <TableHead className="w-[100px]">Serial No</TableHead>

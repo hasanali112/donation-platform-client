@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -10,8 +9,7 @@ import {
 
 const AllBlogsTable = () => {
   return (
-    <Table className="bg-gray-50 p-4 rounded-md">
-      <TableCaption>Rebuil Rising Blog List</TableCaption>
+    <Table className="bg-[#14274e]  p-4 rounded-md w-full ">
       <TableHeader>
         <TableRow>
           <TableHead className="w-[100px]">Blogs No</TableHead>

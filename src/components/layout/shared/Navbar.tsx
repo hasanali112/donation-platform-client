@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RightSidebar from "./RightSidebar";
@@ -5,8 +6,7 @@ import Container from "./Container";
 import logo from "../../../assets/logo2.png";
 import { AuthContext } from "@/providers/AuthProviders";
 import Swal from "sweetalert2";
-import { useGetUserQuery } from "@/redux/api/userApi";
-import LoadingPage from "@/components/cutomsLoading/LoadingPage";
+import { useGetAdminQuery } from "@/redux/api/userApi";
 
 export type TUser = {
   _id: string;
@@ -21,7 +21,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const context = useContext(AuthContext);
-  const { data, isLoading } = useGetUserQuery(undefined);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,16 +47,10 @@ const Navbar = () => {
   }
 
   const { user, logout } = context;
+  const email = user?.email;
+  const { data } = useGetAdminQuery(email);
 
-  if (isLoading) {
-    return <LoadingPage />;
-  }
-
-  const admin = data?.find(
-    (userDb: TUser) => userDb.role === "admin" && userDb.email === user?.email
-  );
-
-  const dashboardPath = admin ? "admin-dashboard" : "user-dashboard";
+  const dashboardPath = data ? "admin-dashboard" : "user-dashboard";
 
   const handleLogout = () => {
     logout();

@@ -3,8 +3,11 @@ import FinancialStateTable from "@/components/dashboardCompo/admin/FinancialStat
 const FinancialReport = () => {
   return (
     <div>
-      <div className="bg-slate-200 h-screen p-10">
-        <div className="bg-white p-2 rounded-md border-b-4 border-blue-500">
+      <div className="p-5">
+        <div className="bg-[#1a2c52]  rounded-md  p-2">
+          <h1 className="text-center font-bold text-2xl mt-3 mb-3">
+            Donate Transaction History
+          </h1>
           <FinancialStateTable />
         </div>
       </div>
