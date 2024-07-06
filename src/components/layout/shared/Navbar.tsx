@@ -93,6 +93,14 @@ const Navbar = () => {
                 <Link to="/members"> Our Teams</Link>
                 <span className="effectNav"></span>
               </li>
+              <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
+                <Link to="/events"> Event</Link>
+                <span className="effectNav"></span>
+              </li>
+              <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
+                <Link to="/news"> News</Link>
+                <span className="effectNav"></span>
+              </li>
               {user && (
                 <Link to={`/${dashboardPath}`}>
                   <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">

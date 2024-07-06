@@ -35,7 +35,9 @@ const Footer = () => {
                 <ul className="space-y-5">
                   <li>About</li>
                   <li>Pricing</li>
-                  <li>Blog</li>
+                  <li>
+                    <Link to="/news">Blog</Link>
+                  </li>
                   <li>Privacy Policy</li>
                   <li>Terms of Use</li>
                 </ul>

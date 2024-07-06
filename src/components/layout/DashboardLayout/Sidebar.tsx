@@ -80,12 +80,12 @@ const Sidebar = () => {
                     Campains
                   </li>
                 </Link>
-                <Link to="/admin-dashboard/blogs">
+                <Link to="/admin-dashboard/news">
                   <li className="  rounded-md  flex items-center gap-2 text-sm text-zinc-400">
                     <span>
                       <File />
                     </span>{" "}
-                    Blogs
+                    News
                   </li>
                 </Link>
                 <Link to="/admin-dashboard/financial-stats">
@@ -104,12 +104,12 @@ const Sidebar = () => {
                     Add Campain
                   </li>
                 </Link>
-                <Link to="/admin-dashboard/create-blog">
+                <Link to="/admin-dashboard/create-news">
                   <li className=" rounded-md  flex items-center gap-2 text-sm text-zinc-400">
                     <span>
                       <MessageSquarePlus />
                     </span>
-                    Add Blog
+                    Add News
                   </li>
                 </Link>
               </ul>

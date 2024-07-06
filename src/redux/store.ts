@@ -2,18 +2,21 @@ import { configureStore } from "@reduxjs/toolkit";
 import { baseApi } from "./api/baseApi";
 import { donationApi } from "./api/donationApi";
 import { userApi } from "./api/userApi";
+import { newsApi } from "./api/newsApi";
 
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     [donationApi.reducerPath]: donationApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
+    [newsApi.reducerPath]: newsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       baseApi.middleware,
       donationApi.middleware,
-      userApi.middleware
+      userApi.middleware,
+      newsApi.middleware
     ),
 });
 

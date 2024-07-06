@@ -6,8 +6,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useGetAllNewsQuery } from "@/redux/api/newsApi";
+
+type TNews = {
+  _id: string;
+  title: string;
+  image: string;
+  category: string;
+  header: string;
+  body: string;
+  conclution: string;
+};
 
 const AllBlogsTable = () => {
+  const { data } = useGetAllNewsQuery(undefined);
   return (
     <Table className="bg-[#14274e]  p-4 rounded-md w-full ">
       <TableHeader>
@@ -15,16 +27,16 @@ const AllBlogsTable = () => {
           <TableHead className="w-[100px]">Blogs No</TableHead>
           <TableHead>Title</TableHead>
           <TableHead>Detail</TableHead>
-          <TableHead className="text-right">Edit</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
-          <TableCell className="font-medium"></TableCell>
-          <TableCell></TableCell>
-          <TableCell className="text-right"></TableCell>
-          <TableCell className="text-right"></TableCell>
-        </TableRow>
+        {data?.map((item: TNews) => (
+          <TableRow key={item._id}>
+            <TableCell className="font-medium">{item?._id}</TableCell>
+            <TableCell>{item?.title}</TableCell>
+            <TableCell>{item?.header.slice(0, 30)}</TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );

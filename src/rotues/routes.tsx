@@ -1,6 +1,7 @@
 import App from "@/App";
 import DashboardLayout from "@/components/layout/DashboardLayout/DashboardLayout";
 import AllDonate from "@/pages/AllDonate";
+import Blog from "@/pages/Blog";
 import AddBlog from "@/pages/Dashboard/admin/AddBlog";
 import AddCampian from "@/pages/Dashboard/admin/AddCampian";
 import Campaining from "@/pages/Dashboard/admin/Campaining";
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "events",
         element: <Event />,
+      },
+      {
+        path: "news",
+        element: <Blog />,
       },
       {
         path: "donations/:id",
@@ -91,7 +96,7 @@ const router = createBrowserRouter([
         element: <Campaining />,
       },
       {
-        path: "blogs",
+        path: "news",
         element: <ContentManage />,
       },
       {
@@ -103,7 +108,7 @@ const router = createBrowserRouter([
         element: <AddCampian />,
       },
       {
-        path: "create-blog",
+        path: "create-news",
         element: <AddBlog />,
       },
     ],

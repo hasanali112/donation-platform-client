@@ -22,7 +22,7 @@ const DonateCard = ({
   description,
   _id,
 }: TPropsClass) => {
-  const calculateValue = (100 / 2500) * Number(amount);
+  const calculateValue = (100 / 5000) * Number(amount);
 
   return (
     <div
@@ -44,7 +44,7 @@ const DonateCard = ({
           <p className="mt-2">
             <span className="font-semibold">${amount}</span>{" "}
             <span className="text-gray-500">donated of</span>{" "}
-            <span className="font-semibold">$2,500</span>
+            <span className="font-semibold">$5000</span>
             <span className="text-gray-500"> goal</span>
           </p>
         </div>

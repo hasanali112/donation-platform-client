@@ -3,6 +3,7 @@ export type Inputs = {
   image: string;
   category: string;
   amount: string;
+  overview: string;
   description: string;
 };
 

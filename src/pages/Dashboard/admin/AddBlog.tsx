@@ -1,15 +1,45 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useAddDonationPostMutation } from "@/redux/api/baseApi";
-import { Inputs } from "@/type/type";
+
+import {
+  ImageDown,
+  NetworkIcon,
+  Newspaper,
+  NotebookPen,
+  SquareKanban,
+} from "lucide-react";
+import Swal from "sweetalert2";
+import { useCreateNewsMutation } from "@/redux/api/newsApi";
+
+type Inputs = {
+  title: string;
+  image: string;
+  category: string;
+  header: string;
+  body: string;
+  conclution: string;
+};
 
 const AddBlog = () => {
-  const [addDonationPost, { isError }] = useAddDonationPostMutation();
+  const [createNews, { isError }] = useCreateNewsMutation();
 
   const { register, handleSubmit, reset } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    addDonationPost(data);
-    reset();
+    try {
+      createNews(data);
+      Swal.fire({
+        title: "Created!",
+        text: "Created News Successfully!",
+        icon: "success",
+      });
+      reset();
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "News not crreated!",
+      });
+    }
   };
 
   if (isError) {
@@ -18,80 +48,93 @@ const AddBlog = () => {
 
   return (
     <div>
-      <div className="bg-slate-200 h-screen p-5">
-        <div className="bg-white p-2 w-[80%] mx-auto rounded-lg">
-          <div className=" bg-gray-100 p-10 rounded-lg">
-            <div className=" h-[400px] w-full rounded-lg">
+      <div className=" p-5">
+        <div className="bg-[#1a2c52]  rounded-md  p-2">
+          <div className=" bg-[#14274e]  p-4 rounded-md w-full ">
+            <div className=" h-[470px] w-full rounded-lg">
               <div className="border-b h-[50px] ">
-                <h1 className="text-3xl font-semibold">Create Blog here</h1>
+                <h1 className="text-3xl font-semibold">Create News here</h1>
               </div>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="grid grid-col-12 gap-3 p-3">
-                  <div className="  col-span-12 p-2">
-                    <label htmlFor="title" className="block text-lg">
-                      Title
-                    </label>
-                    <input
-                      type="text"
-                      id="title"
-                      {...register("title")}
-                      className="rounded-lg w-full h-[80%] border px-3"
-                    />
-                  </div>
-                  <div className="  col-span-12   lg:col-span-6 p-2">
-                    <label htmlFor="image" className="block text-lg">
-                      Image
-                    </label>
-                    <input
-                      type="text"
-                      {...register("image")}
-                      id="image"
-                      className="rounded-lg w-full h-[80%] border px-3"
-                    />
-                  </div>
-                  <div className="  col-span-12   lg:col-span-6 p-2">
-                    <label htmlFor="category" className="block text-lg">
-                      Category
-                    </label>
-                    <input
-                      type="text"
-                      {...register("category")}
-                      id="category"
-                      className="rounded-lg w-full h-[80%] border px-3"
-                    />
-                  </div>
-                  <div className="  col-span-12 lg:col-span-6 p-2">
-                    <label htmlFor="amount" className="block text-lg">
-                      Amount
-                    </label>
-                    <input
-                      type="text"
-                      {...register("amount")}
-                      id="amount"
-                      className="rounded-lg w-full h-[80%] border px-3"
-                    />
-                  </div>
-                  <div className="   col-span-12 lg:col-span-6 p-2">
-                    <label htmlFor="description" className="block text-lg">
-                      Description
-                    </label>
-                    <input
-                      type="text"
-                      {...register("description")}
-                      id="description"
-                      className="rounded-lg w-full h-[80%] border px-3"
-                    />
-                  </div>
-                  <div className="   col-span-12 lg:col-span-6 p-2">
-                    <button
-                      className="bg-purple-500 p-2 rounded-lg text-white text-xl font-base"
-                      type="submit"
-                    >
-                      Create Blog
-                    </button>
+              <div className="relative  mt-3 ">
+                <div className="flex justify-between flex-col">
+                  <div className="rounded-full w-[100px] h-[100px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse translate-x-[250px]"></div>
+                  <div className="rounded-full w-[80px] h-[80px] bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% animate-pulse translate-y-[200px]"></div>
+                </div>
+                <div className="bg-white bg-opacity-10 border border-gray-300 border-t-0 border-opacity-10 w-full rounded-lg backdrop-blur-md shadow-2xl backdrop-filter  absolute top-0 z-20 ">
+                  <div className="p-10">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                      <div>
+                        <div className="grid grid-cols-2 gap-10">
+                          <div className="relative">
+                            <input
+                              type="text"
+                              placeholder="Tilte"
+                              {...register("title", { required: true })}
+                              className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
+                            />
+                            <NotebookPen className="absolute left-0 top-1/2 transform -translate-y-[55%] text-gray-400" />
+                          </div>
+                          <div className="relative">
+                            <input
+                              type="text"
+                              placeholder="Image"
+                              {...register("image", { required: true })}
+                              className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
+                            />
+                            <ImageDown className="absolute left-0 top-1/2 transform -translate-y-[55%] text-gray-400" />
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-10">
+                          <div className="relative mt-10">
+                            <input
+                              type="text"
+                              placeholder="Category"
+                              {...register("category", { required: true })}
+                              className="border-b border-opacity-30 bg-transparent focus:outline-none w-full h-12 px-10"
+                            />
+                            <NetworkIcon className="absolute left-0 top-1/2 transform -translate-y-[60%] text-gray-400" />
+                          </div>
+                          <div className="relative mt-10">
+                            <input
+                              type="text"
+                              placeholder="Header"
+                              {...register("header", { required: true })}
+                              className="border-b border-opacity-30 bg-transparent focus:outline-none w-full h-12 px-10"
+                            />
+                            <NotebookPen className="absolute left-0 top-1/2 transform -translate-y-[60%] text-gray-400" />
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-10">
+                          <div className="relative mt-10">
+                            <input
+                              type="text"
+                              placeholder="Body"
+                              {...register("body", { required: true })}
+                              className="border-b border-opacity-30 bg-transparent focus:outline-none w-full h-12 px-10"
+                            />
+                            <SquareKanban className="absolute left-0 top-1/2 transform -translate-y-[60%] text-gray-400" />
+                          </div>
+                          <div className="relative mt-10">
+                            <input
+                              type="text"
+                              placeholder="Conclution"
+                              {...register("conclution", { required: true })}
+                              className="border-b border-opacity-30 bg-transparent focus:outline-none w-full h-12 px-10"
+                            />
+                            <Newspaper className="absolute left-0 top-1/2 transform -translate-y-[60%] text-gray-400" />
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        type="submit"
+                        className="w-full h-14 border rounded-sm mt-10 text-white  text-xl  flex justify-center items-center gap-2 shadow-sm hover:-translate-y-2 duration-500"
+                      >
+                        Create News
+                      </button>
+                    </form>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

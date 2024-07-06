@@ -44,7 +44,7 @@ const PostDetail = () => {
                 ${data.amount}.00
               </h1>
               <p className="mt-3 text-xl text-gray-600">
-                donate of $30,000.00 goal
+                donate of $5,000.00 goal
               </p>
               <div className="mt-4">
                 <Progress
@@ -71,7 +71,9 @@ const PostDetail = () => {
             </div>
             <hr />
             <div className="px-10 pt-4">
-              <p className="text-gray-500">{data.description.slice(0, 150)}</p>
+              <p className="text-gray-500">
+                {data.overview || data.description.slice(0, 150)}
+              </p>
               <Link to={`/donations/${data._id}/donation-checkout`}>
                 <Button className="w-full bg-blue-700 mt-5">Donate</Button>
               </Link>

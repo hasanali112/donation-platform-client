@@ -16,7 +16,7 @@ const DashboardHome = ({
       <div>
         <h1 className="text-center mt-3">{title}</h1>
         <h1 className="text-center mt-3">
-          {totalUser || totalCampain || totalBlog || totalBlog}
+          {(totalUser || totalCampain || totalBlog || totalBlog) ?? 0}
         </h1>
         <p className="text-center mt-3 text-blue-400">
           Increase rate{" "}
