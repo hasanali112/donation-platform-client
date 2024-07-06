@@ -17,6 +17,7 @@ import DonationForm from "@/pages/DonationForm";
 import Event from "@/pages/Event";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
+import NewsDetail from "@/pages/NewsDetail";
 import OurTeam from "@/pages/OurTeam";
 import PostDetail from "@/pages/PostDetail";
 import Registration from "@/pages/Registration";
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <Blog />,
+      },
+      {
+        path: "news/:id",
+        element: <NewsDetail />,
       },
       {
         path: "donations/:id",

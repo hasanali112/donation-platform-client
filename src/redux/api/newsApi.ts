@@ -23,7 +23,18 @@ export const newsApi = createApi({
       }),
       providesTags: ["news"],
     }),
+    getNewsById: builder.query({
+      query: (id) => ({
+        url: `/news/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["news"],
+    }),
   }),
 });
 
-export const { useCreateNewsMutation, useGetAllNewsQuery } = newsApi;
+export const {
+  useCreateNewsMutation,
+  useGetAllNewsQuery,
+  useGetNewsByIdQuery,
+} = newsApi;

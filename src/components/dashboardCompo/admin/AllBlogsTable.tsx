@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/table";
 import { useGetAllNewsQuery } from "@/redux/api/newsApi";
 
-type TNews = {
+export type TNews = {
   _id: string;
   title: string;
   image: string;

@@ -1,7 +1,15 @@
+import LoadingPage from "@/components/cutomsLoading/LoadingPage";
+import { TNews } from "@/components/dashboardCompo/admin/AllBlogsTable";
 import Container from "@/components/layout/shared/Container";
 import NewsCard from "@/components/news/NewsCard";
+import { useGetAllNewsQuery } from "@/redux/api/newsApi";
 
 const Blog = () => {
+  const { data, isLoading } = useGetAllNewsQuery(undefined);
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
   return (
     <div className="">
       <div className="relative">
@@ -19,9 +27,9 @@ const Blog = () => {
       </div>
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-10 mb-10">
-          <NewsCard />
-          <NewsCard />
-          <NewsCard />
+          {data?.map((item: TNews) => (
+            <NewsCard key={item._id} item={item} />
+          ))}
         </div>
       </Container>
     </div>
