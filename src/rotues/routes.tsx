@@ -21,6 +21,7 @@ import Login from "@/pages/Login";
 import NewsDetail from "@/pages/NewsDetail";
 import OurTeam from "@/pages/OurTeam";
 import Package from "@/pages/Package";
+import PackageForm from "@/pages/PackageForm";
 import PostDetail from "@/pages/PostDetail";
 import Registration from "@/pages/Registration";
 import PrivateRoutes from "@/providers/PrivateRoutes";
@@ -78,7 +79,19 @@ const router = createBrowserRouter([
       },
       {
         path: "package",
-        element: <Package />,
+        element: (
+          <PrivateRoutes>
+            <Package />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "package-form/:id",
+        element: (
+          <PrivateRoutes>
+            <PackageForm />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "login",

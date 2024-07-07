@@ -6,24 +6,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useGetPaymentQuery } from "@/redux/api/donationApi";
+import { useGetAmabassadorPaymentQuery } from "@/redux/api/paymentApi";
+import { TPayment } from "./FinancialStateTable";
 
-export type TPayment = {
-  _id: string;
-  name: string;
-  email: string;
-  amount: string;
-  postCode: string;
-  country: string;
-  phoneNumber: string;
-};
+const AmbassadorTransiction = () => {
+  const { data } = useGetAmabassadorPaymentQuery(undefined);
+  console.log(data);
 
-const FinancialStateTable = () => {
-  const { data, isLoading } = useGetPaymentQuery(undefined);
-
-  if (isLoading) {
-    return <p>Loading............</p>;
-  }
   return (
     <Table className="bg-[#14274e]  p-4 rounded-md w-full ">
       <TableHeader>
@@ -54,4 +43,4 @@ const FinancialStateTable = () => {
   );
 };
 
-export default FinancialStateTable;
+export default AmbassadorTransiction;

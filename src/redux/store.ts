@@ -3,6 +3,7 @@ import { baseApi } from "./api/baseApi";
 import { donationApi } from "./api/donationApi";
 import { userApi } from "./api/userApi";
 import { newsApi } from "./api/newsApi";
+import { paymentApi } from "./api/paymentApi";
 
 export const store = configureStore({
   reducer: {
@@ -10,13 +11,15 @@ export const store = configureStore({
     [donationApi.reducerPath]: donationApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
     [newsApi.reducerPath]: newsApi.reducer,
+    [paymentApi.reducerPath]: paymentApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       baseApi.middleware,
       donationApi.middleware,
       userApi.middleware,
-      newsApi.middleware
+      newsApi.middleware,
+      paymentApi.middleware
     ),
 });
 
