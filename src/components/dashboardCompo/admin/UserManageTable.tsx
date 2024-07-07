@@ -7,6 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { TUser } from "@/pages/Dashboard/admin/UserManagement";
+import RoleChangeDailog from "./RoleChangeDailog";
 
 const UserManageTable = ({ data, role }: { data: TUser[]; role: string }) => {
   return (
@@ -38,7 +39,9 @@ const UserManageTable = ({ data, role }: { data: TUser[]; role: string }) => {
               <TableCell>{user.name}</TableCell>
               <TableCell>{user.email}</TableCell>
               <TableCell>{user.role}</TableCell>
-              <TableCell>edit</TableCell>
+              <TableCell>
+                <RoleChangeDailog id={user._id} />
+              </TableCell>
             </TableRow>
           ))
         )}

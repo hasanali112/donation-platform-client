@@ -5,8 +5,16 @@ import { Button } from "@/components/ui/button";
 import facbook from "@/assets/fb.png";
 import instagram from "@/assets/insta.png";
 import link from "@/assets/link.png";
+import Swal from "sweetalert2";
 
 const Footer = () => {
+  const handleSubmit = () => {
+    Swal.fire({
+      title: "Thank you!",
+      text: "Your mail is subscribe!",
+      icon: "success",
+    });
+  };
   return (
     <div className=" text-white border-t-4 bg-gradient-to-r from-[#211e3d] to-[#561c3e]">
       <Container>
@@ -71,7 +79,10 @@ const Footer = () => {
               placeholder="Enter your email"
               className="w-[250px] h-[40px] mt-3 rounded-md bg-transparent border border-white pl-4"
             />
-            <Button className="bg-blue-600 ml-1 h-[40px] rounded-md -translate-y-[2px]">
+            <Button
+              onClick={handleSubmit}
+              className="bg-blue-600 ml-1 h-[40px] rounded-md -translate-y-[2px]"
+            >
               Submit
             </Button>
             <div className="mt-6">

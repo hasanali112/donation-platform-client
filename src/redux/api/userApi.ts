@@ -32,6 +32,18 @@ export const userApi = createApi({
       providesTags: ["user"],
     }),
 
+    roleChange: builder.mutation({
+      query: (options) => (
+        console.log(options),
+        {
+          url: `/user-role-change/${options.id}`,
+          method: "PATCH",
+          body: { role: options.role },
+        }
+      ),
+      invalidatesTags: ["user"],
+    }),
+
     getUserByEmail: builder.query({
       query: ({ query: email }) => ({
         url: `/users/${email}`,
@@ -47,4 +59,5 @@ export const {
   useGetAdminQuery,
   useGetUserQuery,
   useGetUserByEmailQuery,
+  useRoleChangeMutation,
 } = userApi;
