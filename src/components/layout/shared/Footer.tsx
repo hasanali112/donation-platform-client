@@ -33,13 +33,19 @@ const Footer = () => {
               <div>
                 <h1 className="text-2xl font-bold mb-2">COMPANY</h1>
                 <ul className="space-y-5">
-                  <li>About</li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
                   <li>Pricing</li>
                   <li>
                     <Link to="/news">Blog</Link>
                   </li>
-                  <li>Privacy Policy</li>
-                  <li>Terms of Use</li>
+                  <li>
+                    <Link to="/about">Privacy Policy</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">Terms of Use</Link>
+                  </li>
                 </ul>
               </div>
               <div>

@@ -15,14 +15,16 @@ const HeroSection = () => {
               improve their lives.
             </p>
             <div className="mt-4 space-x-4">
-              <Link to="/donation-checkout">
+              <Link to="/donations">
                 <button className="p-3 w-36 text-white font-semibold bg-blue-700 rounded-lg">
                   Donate
                 </button>
               </Link>
-              <button className="p-3 w-36 text-white font-semibold bg-gray-600 rounded-lg">
-                Learn More
-              </button>
+              <Link to="/about">
+                <button className="p-3 w-36 text-white font-semibold bg-gray-600 rounded-lg">
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
           <div className="lg:col-span-7 col-span-12 mt-10 lg:mt-0">

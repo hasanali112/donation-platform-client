@@ -1,5 +1,6 @@
 import App from "@/App";
 import DashboardLayout from "@/components/layout/DashboardLayout/DashboardLayout";
+import About from "@/pages/About";
 import AllDonate from "@/pages/AllDonate";
 import Blog from "@/pages/Blog";
 import AddBlog from "@/pages/Dashboard/admin/AddBlog";
@@ -19,6 +20,7 @@ import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import NewsDetail from "@/pages/NewsDetail";
 import OurTeam from "@/pages/OurTeam";
+import Package from "@/pages/Package";
 import PostDetail from "@/pages/PostDetail";
 import Registration from "@/pages/Registration";
 import PrivateRoutes from "@/providers/PrivateRoutes";
@@ -69,6 +71,14 @@ const router = createBrowserRouter([
             <DonationForm />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "package",
+        element: <Package />,
       },
       {
         path: "login",

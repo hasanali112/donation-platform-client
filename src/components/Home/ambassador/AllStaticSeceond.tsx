@@ -33,7 +33,7 @@ const AllStaticSeceond = () => {
       </div>
 
       <div className="bg-gray-200 cursor-pointer hover:bg-slate-600 bg-opacity-35 text-white  w-[258px] h-[258px]">
-        <Link to="">
+        <Link to="/package">
           <div className="flex flex-col mt-20">
             <h1 className="w-1/2 mx-auto font-semibold">
               <ArrowRight className="ml-10" />
