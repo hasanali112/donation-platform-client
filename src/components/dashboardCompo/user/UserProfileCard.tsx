@@ -1,13 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { TUser } from "@/components/layout/shared/Navbar";
+
 import { Card } from "@/components/ui/card";
 import { AuthContext } from "@/providers/AuthProviders";
-import { useGetUserQuery } from "@/redux/api/userApi";
+import { useSingleUserByEmailQuery } from "@/redux/api/userApi";
 import { useContext } from "react";
+import EditProfileModal from "./EditProfileModal";
 
 const UserProfileCard = () => {
   const context = useContext(AuthContext);
-  const { data, isLoading } = useGetUserQuery(undefined);
+
   if (!context) {
     return <p>null</p>;
   }
@@ -15,26 +16,30 @@ const UserProfileCard = () => {
   const { user } = context;
   const email = user?.email;
 
-  const userData = data?.filter((item: TUser) => item.email === email);
+  const { data, isLoading } = useSingleUserByEmailQuery(email);
 
   if (isLoading) {
     return <p>Loading...</p>;
   }
 
   return (
-    <Card className="w-[350px] h-[650px] rounded-xl">
-      <div>
-        {userData?.map((item: TUser) => (
-          <div key={item._id}>
+    <Card className="w-[350px] h-[650px] rounded-md bg-[#14274e] border-0 text-white">
+      <div className="p-5 flex flex-col items-center">
+        <div>
+          <div>
             <img
-              src={item?.photo}
+              src={data?.photo}
               alt=""
-              className="w-full h-[350px] object-cover rounded-xl"
+              className="w-[200px] h-[200px] object-cover rounded-full"
             />
-            <h1 className="ml-10 text-xl font-bold mt-10">{item?.name}</h1>
-            <h3 className="ml-10 text-base  mt-3">{item?.email}</h3>
           </div>
-        ))}
+          <h1 className=" text-xl font-bold mt-10">{data?.name}</h1>
+          <h1 className="text-xl  mt-4">{data?.role}</h1>
+          <h3 className=" text-base  mt-3">{data?.email}</h3>
+          <div className="mt-4  w-full">
+            <EditProfileModal _id={data?._id} />
+          </div>
+        </div>
       </div>
     </Card>
   );

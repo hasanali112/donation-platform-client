@@ -51,6 +51,21 @@ export const userApi = createApi({
       }),
       providesTags: ["user"],
     }),
+    singleUserByEmail: builder.query({
+      query: (email) => ({
+        url: `/single-users/${email}`,
+        method: "GET",
+      }),
+      providesTags: ["user"],
+    }),
+    updateUserProfile: builder.mutation({
+      query: (options) => ({
+        url: `/update-user/${options._id}`,
+        method: "PUT",
+        body: options.data,
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
 });
 
@@ -60,4 +75,6 @@ export const {
   useGetUserQuery,
   useGetUserByEmailQuery,
   useRoleChangeMutation,
+  useSingleUserByEmailQuery,
+  useUpdateUserProfileMutation,
 } = userApi;

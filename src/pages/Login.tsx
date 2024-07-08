@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { UserCredential } from "firebase/auth";
 import { Lock, Mail } from "lucide-react";
+import { useCreateUserMutation } from "@/redux/api/userApi";
 
 type Inputs = {
   email: string;
@@ -16,6 +17,7 @@ type Inputs = {
 
 const Login = () => {
   const context = useContext(AuthContext);
+  const [createUser] = useCreateUserMutation();
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -49,7 +51,16 @@ const Login = () => {
     googleLoggedUser()
       .then((result) => {
         const googleSignIn = result.user;
-        console.log(googleSignIn);
+        const email = googleSignIn.email;
+        const name = googleSignIn.displayName;
+        const photo = googleSignIn.photoURL;
+        const userData = {
+          name,
+          photo,
+          email,
+          role: "user",
+        };
+        createUser(userData);
         Swal.fire({
           title: "Sign In!",
           text: "Sign in successfully!",

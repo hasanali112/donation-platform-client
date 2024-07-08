@@ -63,7 +63,16 @@ const Registration = () => {
     googleLoggedUser()
       .then((result) => {
         const googleSignIn = result.user;
-        console.log(googleSignIn);
+        const email = googleSignIn.email;
+        const name = googleSignIn.displayName;
+        const photo = googleSignIn.photoURL;
+        const userData = {
+          name,
+          photo,
+          email,
+          role: "user",
+        };
+        createUser(userData);
         Swal.fire({
           title: "Sign In!",
           text: "Sign in successfully!",

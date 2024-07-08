@@ -115,40 +115,38 @@ const Sidebar = () => {
               </ul>
             </div>
           ) : (
-            <ul className="flex flex-col gap-6 p-1 lg:p-5">
-              <Link to="/user-dashboard">
-                <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
-                  <span>
-                    <User />
-                  </span>
-                  User Profile
-                </li>
-              </Link>
-              <Link to="/user-dashboard/favourite-campain">
-                <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
-                  <span>
-                    <BookmarkPlus />
-                  </span>{" "}
-                  Fav Campains
-                </li>
-              </Link>
-              <Link to="/user-dashboard/total-donation">
-                <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
-                  <span>
-                    <File />
-                  </span>{" "}
-                  Total Donations
-                </li>
-              </Link>
-              {/* <Link to="/user-dashboard/receipt">
-              <li className="lg:p-3 p-1  rounded-md hover:bg-gray-700 flex items-center gap-2">
-                <span>
-                  <BadgeDollarSign />
-                </span>{" "}
-                Donation Receipts
-              </li>
-            </Link> */}
-            </ul>
+            <div className="mt-3">
+              <h1 className="bg-[#052e60] text-zinc-200 px-5 pt-3 pb-3">
+                User
+              </h1>
+              <ul className="flex flex-col gap-7  border border-[#113969]  pl-5 pt-4 pb-4">
+                <Link to="/user-dashboard">
+                  <li className="rounded-md flex items-center gap-2 text-sm text-zinc-400">
+                    <span>
+                      <User />
+                    </span>{" "}
+                    User Porfile
+                  </li>
+                </Link>
+
+                <Link to="/user-dashboard/favourite-campain">
+                  <li className="  rounded-md  flex items-center gap-2 text-sm text-zinc-400">
+                    <span>
+                      <BookmarkPlus />
+                    </span>{" "}
+                    Favourite campain
+                  </li>
+                </Link>
+                <Link to="/user-dashboard/receipt">
+                  <li className="  rounded-md  flex items-center gap-2 text-sm text-zinc-400">
+                    <span>
+                      <BadgeDollarSign />
+                    </span>{" "}
+                    Donation Receipt
+                  </li>
+                </Link>
+              </ul>
+            </div>
           )}
         </div>
       </div>
