@@ -13,5 +13,6 @@ export type TProps = {
   category: string;
   amount: string;
   description: string;
+  favourite?: boolean;
   _id: string;
 };

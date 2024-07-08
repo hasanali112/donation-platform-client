@@ -21,6 +21,12 @@ export const donationApi = createApi({
         method: "GET",
       }),
     }),
+    paymentByUserEmail: builder.query({
+      query: (email) => ({
+        url: `/user-donation-payments/${email}`,
+        method: "GET",
+      }),
+    }),
 
     getAllState: builder.query({
       query: () => ({
@@ -52,4 +58,5 @@ export const {
   useGetCalculationAmountQuery,
   useGetPaymentByIdQuery,
   useGetAllStateQuery,
+  usePaymentByUserEmailQuery,
 } = donationApi;

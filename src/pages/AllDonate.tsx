@@ -21,7 +21,7 @@ const AllDonate = () => {
               the size, contributes to creating a brighter future for
               individuals and communities.
             </p>
-            <Link to="/donation-checkout">
+            <Link to="/about">
               <Button className="bg-blue-600 ml-8 mt-4">How To Help?</Button>
             </Link>
           </div>

@@ -9,10 +9,10 @@ const EventBanner = () => {
         <img
           src="https://images.unsplash.com/photo-1594122230689-45899d9e6f69?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""
-          className="h-[200px] w-full object-cover"
+          className="lg:h-[200px] w-full object-cover"
         />
-        <div className="h-[200px] w-full  bg-gradient-to-r from-[#211e3d] to-[#561c3e]  absolute top-0 opacity-[.90]">
-          <Container className="flex justify-between items-center mt-16">
+        <div className="lg:h-[200px] h-[285px] w-full  bg-gradient-to-r from-[#211e3d] to-[#561c3e]  absolute top-0 opacity-[.90]">
+          <Container className="flex flex-col lg:flex-row justify-between gap-4 items-center mt-7 lg:mt-16">
             <div>
               <h3 className="  text-white  text-xl font-semibold m">
                 Our Next Event

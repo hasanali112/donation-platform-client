@@ -7,7 +7,7 @@ import TotalPost from "@/components/dashboardCompo/charts/TotalPost";
 import DashboardContainer from "@/components/layout/shared/DashboardContainer";
 
 import { useGetAllStateQuery } from "@/redux/api/donationApi";
-import UserManagement from "./admin/UserManagement";
+import UserManagement from "./UserManagement";
 
 const Dashboard = () => {
   const { data, isLoading, isError } = useGetAllStateQuery(undefined);

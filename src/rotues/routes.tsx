@@ -7,9 +7,10 @@ import AddBlog from "@/pages/Dashboard/admin/AddBlog";
 import AddCampian from "@/pages/Dashboard/admin/AddCampian";
 import Campaining from "@/pages/Dashboard/admin/Campaining";
 import ContentManage from "@/pages/Dashboard/admin/ContentManage";
+import Dashboard from "@/pages/Dashboard/admin/Dashboard";
 import FinancialReport from "@/pages/Dashboard/admin/FinancialReport";
 import UserManagement from "@/pages/Dashboard/admin/UserManagement";
-import Dashboard from "@/pages/Dashboard/Dashboard";
+
 import DonationHistory from "@/pages/Dashboard/user/DonationHistory";
 import DonationRecipt from "@/pages/Dashboard/user/DonationRecipt";
 import FavouriteCampain from "@/pages/Dashboard/user/FavouriteCampain";

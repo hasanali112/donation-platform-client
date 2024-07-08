@@ -9,6 +9,7 @@ import {
   NotebookPen,
   SquareKanban,
 } from "lucide-react";
+import Swal from "sweetalert2";
 
 const AddCampian = () => {
   const [addDonationPost, { isError }] = useAddDonationPostMutation();
@@ -17,6 +18,11 @@ const AddCampian = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     addDonationPost(data);
+    Swal.fire({
+      title: "Successful!",
+      text: "Campain created successfully!",
+      icon: "success",
+    });
     reset();
   };
 

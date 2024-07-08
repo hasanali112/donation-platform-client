@@ -1,8 +1,12 @@
+import DonationReceptTable from "./DonationReceptTable";
 import UserProfileCard from "./UserProfileCard";
 
 const UserProfileState = () => {
   return (
     <div className="p-5">
+      <div className="bg-[#14274e]  w-full mx-auto  h-[80px]  rounded-sm mb-5 mt-5">
+        <h1 className="text-2xl font-bold pt-4 ml-5">User Dashboard</h1>
+      </div>
       <div className="flex gap-5">
         <div>
           <UserProfileCard />
@@ -37,6 +41,9 @@ const UserProfileState = () => {
             companies to bolster its position in key markets.
           </p>
         </div>
+      </div>
+      <div className="mt-5">
+        <DonationReceptTable />
       </div>
     </div>
   );

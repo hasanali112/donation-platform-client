@@ -36,6 +36,16 @@ export const baseApi = createApi({
       }),
       invalidatesTags: ["donationpost"],
     }),
+
+    upadatePartialDonationPost: builder.mutation({
+      query: (options) => ({
+        url: `/favourite-post/${options.id}`,
+        method: "PATCH",
+        body: { favourite: options.favourite },
+      }),
+      invalidatesTags: ["donationpost"],
+    }),
+
     delateDonationPost: builder.mutation({
       query: (id) => ({
         url: `/donation-post/${id}`,
@@ -52,4 +62,5 @@ export const {
   useGetDonationPostByIdQuery,
   useUpadateDonationPostMutation,
   useDelateDonationPostMutation,
+  useUpadatePartialDonationPostMutation,
 } = baseApi;

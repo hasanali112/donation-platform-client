@@ -164,6 +164,13 @@ const Login = () => {
                     <p className="text-center mt-10 text-gray-400">
                       Join us, be a part of future
                     </p>
+                    <div className="ml-10 mt-10">
+                      <p className="mt-4 text-left">
+                        Email : mdhasan.ru.ro@gmail.com
+                      </p>
+                      <p className="mt-4 text-left">Password : 123456</p>
+                      <p className="mt-4 text-left">Role: Admin</p>
+                    </div>
                   </div>
                 </div>
               </div>

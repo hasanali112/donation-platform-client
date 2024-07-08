@@ -1,16 +1,23 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import LoadingSinglePage from "@/components/cutomsLoading/LoadingSinglePage";
 import TestimonialSvg from "@/components/Home/testimonial/TestimonialSvg";
 import Container from "@/components/layout/shared/Container";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { useGetDonationPostByIdQuery } from "@/redux/api/baseApi";
+import {
+  useGetDonationPostByIdQuery,
+  useUpadatePartialDonationPostMutation,
+} from "@/redux/api/baseApi";
 import { Hourglass, Users } from "lucide-react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const PostDetail = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useGetDonationPostByIdQuery(id);
+  const [favourite] = useState(true);
+  const [upadatePartialDonationPost] = useUpadatePartialDonationPostMutation();
 
   if (isLoading) {
     return <LoadingSinglePage />;
@@ -23,9 +30,14 @@ const PostDetail = () => {
   const calculateValue = (100 / 2500) * Number(data.amount);
 
   const handleFavourite = () => {
+    const options = {
+      id: data?._id,
+      favourite: favourite,
+    };
+    upadatePartialDonationPost(options);
     Swal.fire({
-      title: "Added!",
-      text: `${data.title} Campain is saved!`,
+      title: "Successfull!",
+      text: "Campain add to your dashboard!",
       icon: "success",
     });
   };
@@ -72,18 +84,31 @@ const PostDetail = () => {
             <hr />
             <div className="px-10 pt-4">
               <p className="text-gray-500">
-                {data.overview || data.description.slice(0, 150)}
+                {data?.overview.slice(0, 150) ||
+                  data?.description.slice(0, 150)}
               </p>
+              <p className="text-gray-500">{data?.favourite}</p>
               <Link to={`/donations/${data._id}/donation-checkout`}>
                 <Button className="w-full bg-blue-700 mt-5">Donate</Button>
               </Link>
-              <Button
-                onClick={handleFavourite}
-                variant="outline"
-                className="w-full border border-gray-500 mt-2"
-              >
-                Favourite Campain
-              </Button>
+              {data?.favourite == true ? (
+                <Button
+                  onClick={handleFavourite}
+                  disabled
+                  variant="outline"
+                  className="w-full border border-gray-500 mt-2"
+                >
+                  Undo Favourite Campain
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleFavourite}
+                  variant="outline"
+                  className="w-full border border-gray-500 mt-2"
+                >
+                  Favourite Campain
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -124,27 +149,3 @@ const PostDetail = () => {
 };
 
 export default PostDetail;
-
-{
-  /* <div className="grid grid-cols-12 gap-10 bg-white rounded-lg shadow-sm">
-<div className="lg:col-span-7 col-span-12 h-[500px] p-5">
-  <img src={data.image} alt="" className="w-full h-full rounded-lg" />
-</div>
-<div className="lg:col-span-5 col-span-12 h-[500px] p-5 ">
-  <h1 className="text-4xl font-bold ">{data.title}</h1>
-  <h1 className="mt-3 text-xl">{data.category}</h1>
-  <h1 className="mt-3 text-xl">${data.amount}</h1>
-  <p className="mt-3 ">{data.description.slice(0, 500)}</p>
-  <div className=" mt-5">
-    <Link to="/donation-checkout">
-      <button className="p-3 w-full text-white font-semibold bg-blue-600 rounded-lg">
-        Donate
-      </button>
-    </Link>
-  </div>
-</div>
-</div>
-<div>
-<p className="text-gray-600 mt-20 mb-20">{data.description}</p>
-</div> */
-}

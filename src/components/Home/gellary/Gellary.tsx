@@ -31,7 +31,7 @@ const Gellary = () => {
                   <ArrowRight className="mr-4" />
                 </div>
               </Link>
-              <Link to="">
+              <Link to="/events">
                 <div className="bg-slate-100 shadow-md border-l-4 w-[340px] h-[70px] border-blue-800 flex items-center justify-between">
                   <h1 className=" ml-5 font-semibold">View upcoming event</h1>
                   <ArrowRight className="mr-4" />
