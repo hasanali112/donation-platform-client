@@ -1,12 +1,22 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import RightSidebar from "./RightSidebar";
 import Container from "./Container";
-import logo from "../../../assets/logo2.png";
+import logo from "../../../assets/donation1.png";
 import { AuthContext } from "@/providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useGetAdminQuery } from "@/redux/api/userApi";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  Twitter,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export type TUser = {
   _id: string;
@@ -18,29 +28,7 @@ export type TUser = {
 };
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const context = useContext(AuthContext);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 500) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
 
   if (!context) {
     return <p>null</p>;
@@ -61,26 +49,56 @@ const Navbar = () => {
     });
   };
 
+  const navAnimation = {
+    hidden: {
+      y: -400,
+    },
+    visible: {
+      y: 0,
+      transition: {
+        duration: 1.5,
+      },
+    },
+  };
+
   return (
-    <div className={"sticky top-0 z-10"}>
-      <div
-        className={
-          scrolled
-            ? "bg-white text-black shadow-md"
-            : "bg-gradient-to-r from-[#211e3d] to-[#561c3e] text-white"
-        }
-      >
-        <Container className="flex justify-between items-center p-5 ">
-          <div className="flex justify-center items-center gap-16 ">
-            <Link to="/" className="flex items-center gap-1 ">
-              <img src={logo} alt="" className="w-12" />
-              <span className="text-3xl font-bold">
-                Rebuild <span className="text-blue-500">Rising</span>
-              </span>
-            </Link>
+    <motion.header
+      initial="hidden"
+      animate="visible"
+      variants={navAnimation}
+      className={" md:h-[150px] bg-white shadow-sm"}
+    >
+      <nav className="h-full">
+        <Container className="py-4 flex justify-between">
+          <div>
+            <h6 className="text-gray-400 text-sm inline-flex items-center gap-3">
+              <Phone className="w-4 h-4" />
+              1-830-760-660
+            </h6>
+            <h6 className="text-gray-400 text-sm inline-flex items-center gap-2 md:ml-4">
+              <Mail className="w-4 h-4" />
+              info@rebuild-rising.com
+            </h6>
           </div>
+          <div className="flex items-center gap-2 md:gap-4">
+            <Twitter className="text-blue-600" />
+            <Facebook className="text-blue-600" />
+            <Linkedin className="text-blue-600" />
+            <Instagram className="text-blue-600" />
+          </div>
+        </Container>
+        <hr />
+
+        <Container className="flex justify-between items-center  py-4">
+          <div className="flex  items-center  gap-2 -translate-x-[9px]">
+            <img src={logo} alt="" className="w-[50px] h-[50px]" />
+            <h1 className="text-3xl md:text-4xl font-bold">
+              Rebuild <span className="text-blue-600">Rising</span>
+            </h1>
+          </div>
+
           <div className="lg:block hidden mt-1">
-            <ul className="flex gap-10 cursor-pointer">
+            <ul className="flex lg:gap-5 xl:gap-8 cursor-pointer font-semibold">
               <li className="transition ease-in-out delay-150 hover:scale-125 duration-500 relative group">
                 <Link to="/"> Home</Link>
                 <span className="effectNav"></span>
@@ -123,57 +141,31 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-          <div className="relative  lg:hidden">
-            {isOpen ? (
-              <span>
-                <svg
-                  onClick={handleToggle}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18 18 6M6 6l12 12"
-                  />
-                </svg>
-              </span>
-            ) : (
-              <span>
-                <svg
-                  onClick={handleToggle}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
-                  />
-                </svg>
-              </span>
-            )}
-            <div
-              className={`absolute z-10  ${
-                isOpen
-                  ? "md:-right-4 top-10 md:top-[39px] -right-4"
-                  : "-right-4 md:right-16 md:top-[39px] -top-96"
-              } duration-500 `}
-            >
-              {isOpen && <RightSidebar scrolled={scrolled} />}
+          <div className="hidden lg:block">
+            <div className="relative">
+              <div
+                style={{
+                  clipPath: "polygon(20% 0, 100% 0%, 100% 100%, 0% 100%)",
+                  backgroundColor: "#F9F9F9",
+                  position: "absolute",
+                  width: "200px",
+                  height: "92px",
+                  top: "-16px",
+                  right: "0px",
+                  // zIndex: -1,
+                }}
+              />
+              <Button className="bg-[#1b51c5] rounded-[3px] w-[120px] h-[50px] text-md font-semibold relative z-10 mr-3">
+                Donate Now
+              </Button>
             </div>
           </div>
+          <div className="relative  lg:hidden">
+            <RightSidebar />
+          </div>
         </Container>
-      </div>
-    </div>
+      </nav>
+    </motion.header>
   );
 };
 export default Navbar;

@@ -1,83 +1,76 @@
-import image1 from "@/assets/1.jpg";
-import image2 from "@/assets/2.jpg";
-import image3 from "@/assets/3.jpg";
-import image4 from "@/assets/4.jpg";
-import image5 from "@/assets/5.jpg";
-import image6 from "@/assets/6.jpg";
-import image7 from "@/assets/7.jpg";
+import image1 from "@/assets/Donation/1.webp";
+import image2 from "@/assets/Donation/2.webp";
+import image3 from "@/assets/Donation/3.webp";
+import image4 from "@/assets/Donation/4.webp";
+import image5 from "@/assets/Donation/6.jpg";
+import image6 from "@/assets/Donation/7.jpg";
+import image7 from "@/assets/Donation/8.jpg";
+import image8 from "@/assets/Donation/9.jpg";
+import image9 from "@/assets/Donation/10.jpg";
+import image10 from "@/assets/Donation/20.jpg";
+import image11 from "@/assets/Donation/12.jpg";
+import image12 from "@/assets/Donation/13.jpg";
+import image13 from "@/assets/Donation/15.jpg";
+import image14 from "@/assets/Donation/16.jpg";
+import image15 from "@/assets/Donation/17.jpg";
+import image16 from "@/assets/Donation/18.jpg";
+import image17 from "@/assets/Donation/19.jpg";
+import { motion } from "framer-motion";
+
+const images = [
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
+  image12,
+  image13,
+  image14,
+  image15,
+  image16,
+  image17,
+];
 
 const GellaryLayout = () => {
   return (
-    <div className="grid grid-cols-12  gap-4">
-      <div className="col-span-3  w-[128px] h-[192px] translate-y-[90px]">
-        <img
-          src={image1}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[128px] h-[212px]">
-        <img
-          src={image2}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[128px] h-[171px] mt-2">
-        <img
-          src={image3}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[140px] h-[255px] mt-14">
-        <img
-          src={image4}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[172px] h-[258px] -translate-y-[30px] -translate-x-[45px]">
-        <img
-          src={image5}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[128px] h-[172px] -translate-y-[100px]">
-        <img
-          src={image6}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[128px] h-[172px] -translate-y-[134px]">
-        <img
-          src={image7}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[128px] h-[160px]">
-        <img
-          src={image4}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[128px] h-[192px] -translate-y-[187px] translate-x-[145px]">
-        <img
-          src={image4}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
-      </div>
-      <div className="col-span-3  w-[128px] h-[165px] -translate-y-[220px] translate-x-[150px]">
-        <img
-          src={image7}
-          alt=""
-          className="h-full w-full object-cover rounded-lg"
-        />
+    <div className="bg-white w-full ">
+      <div className="flex gap-3 xl:overflow-x-hidden lg:overflow-hidden">
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+          className="flex flex-shrink-0 gap-3"
+        >
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`image${index + 1}`}
+              className="w-[450px] h-[400px] object-cover rounded-lg"
+            />
+          ))}
+        </motion.div>
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+          className="flex flex-shrink-0 gap-3"
+        >
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`image${index + 1}`}
+              className="w-[450px] h-[400px] object-cover rounded-lg"
+            />
+          ))}
+        </motion.div>
       </div>
     </div>
   );

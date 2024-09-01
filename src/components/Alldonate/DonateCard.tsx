@@ -27,7 +27,7 @@ const DonateCard = ({
   return (
     <div
       className={cn(
-        `border bg-gray-100 min-w-[370px] max-w-[370px] lg:min-w-[370px] lg:max-w-[370px] lg:h-[550px] h-[510px] rounded-sm  hover:-translate-y-3 duration-500 lg:hover:scale-110  shadow-sm shadow-gray-200`,
+        `border bg-gray-100 min-w-[370px] max-w-[370px] lg:min-w-[370px] lg:max-w-[370px] lg:h-[550px] h-[510px] rounded-sm   duration-500   shadow-sm shadow-gray-200`,
         className
       )}
     >

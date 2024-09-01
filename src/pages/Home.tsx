@@ -14,12 +14,16 @@ const Home = () => {
     <div className="overflow-hidden">
       <HeroSection />
       <DonationPost />
-      <Testimonial />
       <Gellary />
-      <Ammassador />
+      <div className="md:block hidden">
+        <Ammassador />
+      </div>
       <Team />
       <EventBanner />
-      <About />
+      <div className="md:block hidden">
+        <About />
+      </div>
+      <Testimonial />
       <Scroll />
     </div>
   );
